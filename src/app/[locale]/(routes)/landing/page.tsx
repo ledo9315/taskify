@@ -158,7 +158,7 @@ export default function LandingPage({
                       alt="Taskify Dashboard Interface - Task Management Application"
                       width={1200}
                       height={750}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-102"
                       priority
                       quality={95}
                       placeholder="blur"
