@@ -6,7 +6,7 @@ import { sendEmail } from "./email"; // your email sending function
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL, // Hinzugefügt für Social Providers
   database: drizzleAdapter(db, {
-    provider: "sqlite",
+    provider: "pg",
     schema: schema,
   }),
   emailAndPassword: {

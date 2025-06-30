@@ -1,14 +1,21 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import {
+  pgTable,
+  text,
+  integer,
+  boolean,
+  timestamp,
+  json,
+} from "drizzle-orm/pg-core";
 
-export const tasksTable = sqliteTable("tasks", {
-  id: integer({ mode: "number" }).primaryKey({ autoIncrement: true }),
-  title: text().notNull(),
-  complete: integer({ mode: "boolean" }).notNull().default(false),
-  description: text().notNull(),
+export const tasksTable = pgTable("tasks", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  title: text("title").notNull(),
+  complete: boolean("complete").notNull().default(false),
+  description: text("description").notNull(),
   userId: text("user_id").notNull().default("default_user"),
-  dueDate: integer({ mode: "timestamp" }),
-  tags: text({ mode: "json" }).$type<string[]>().default([]),
-  priority: integer({ mode: "number" }).notNull().default(0),
-  updatedAt: integer({ mode: "timestamp" }),
-  createdAt: integer({ mode: "timestamp" }).notNull(),
+  dueDate: timestamp("due_date"),
+  tags: json("tags").$type<string[]>().default([]),
+  priority: integer("priority").notNull().default(0),
+  updatedAt: timestamp("updated_at"),
+  createdAt: timestamp("created_at").notNull(),
 });

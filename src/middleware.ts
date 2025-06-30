@@ -18,5 +18,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/en", "/de"], // nur diese Routen werden geschützt
+  matcher: ["/en", "/de"],
 };
