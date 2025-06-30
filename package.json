@@ -7,8 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:seed": "tsx src/db/seed.ts",
-    "db:reset": "tsx src/db/seed.ts --force",
     "db:clear": "tsx src/db/clear.ts",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
