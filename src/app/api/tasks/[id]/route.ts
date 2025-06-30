@@ -61,12 +61,20 @@ export async function PATCH(
     const body = await request.json();
     const now = new Date();
 
-    const { dueDate, ...restOfBody } = body;
+    const { dueDate, title, description, complete, priority, tags, userId } =
+      body;
 
     const updatePayload: Record<string, unknown> = {
-      ...restOfBody,
       updatedAt: now,
     };
+
+    // Nur definierte Felder hinzufügen (keine ID!)
+    if (title !== undefined) updatePayload.title = title;
+    if (description !== undefined) updatePayload.description = description;
+    if (complete !== undefined) updatePayload.complete = complete;
+    if (priority !== undefined) updatePayload.priority = priority;
+    if (tags !== undefined) updatePayload.tags = tags;
+    if (userId !== undefined) updatePayload.userId = userId;
 
     if (body.hasOwnProperty("dueDate")) {
       updatePayload.dueDate = dueDate ? new Date(dueDate) : null;
