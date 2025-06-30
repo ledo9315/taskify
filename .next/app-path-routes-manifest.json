@@ -1,0 +1,18 @@
+{
+  "/api/tasks/route": "/api/tasks",
+  "/api/tasks/[id]/route": "/api/tasks/[id]",
+  "/favicon.ico/route": "/favicon.ico",
+  "/api/auth/[...all]/route": "/api/auth/[...all]",
+  "/[locale]/(routes)/edit/[id]/page": "/[locale]/edit/[id]",
+  "/[locale]/(routes)/login/page": "/[locale]/login",
+  "/[locale]/(routes)/forgot-password/page": "/[locale]/forgot-password",
+  "/_not-found/page": "/_not-found",
+  "/[locale]/(routes)/landing/page": "/[locale]/landing",
+  "/[locale]/(routes)/reset-password/page": "/[locale]/reset-password",
+  "/[locale]/(routes)/task/[id]/page": "/[locale]/task/[id]",
+  "/[locale]/(routes)/register/page": "/[locale]/register",
+  "/[locale]/(routes)/verify-email/page": "/[locale]/verify-email",
+  "/[locale]/(routes)/add/page": "/[locale]/add",
+  "/page": "/",
+  "/[locale]/page": "/[locale]"
+}

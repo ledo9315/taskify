@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/leoniddomahalskyy/Documents/nextjs-project-gruppe-23/src/app/loading.tsx"],"sourcesContent":["\"use client\";\n\nimport { useParams } from \"next/navigation\";\nimport { DEFAULT_LOCALE } from \"@src/components/locale/locale\";\n\nexport default function Loading() {\n  const params = useParams();\n  const locale = (params?.locale as string) || DEFAULT_LOCALE;\n\n  return (\n    <div className=\"min-h-screen flex items-center justify-center\">\n      <div className=\"text-center\">\n        <div className=\"animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4\"></div>\n        <p className=\"font-medium\">\n          {locale === \"de\" ? \"Wird geladen...\" : \"Loading...\"}\n        </p>\n      </div>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AAEA;AACA;;;AAHA;;;AAKe,SAAS;;IACtB,MAAM,SAAS,CAAA,GAAA,qIAAA,CAAA,YAAS,AAAD;IACvB,MAAM,SAAS,AAAC,QAAQ,UAAqB,wIAAA,CAAA,iBAAc;IAE3D,qBACE,6LAAC;QAAI,WAAU;kBACb,cAAA,6LAAC;YAAI,WAAU;;8BACb,6LAAC;oBAAI,WAAU;;;;;;8BACf,6LAAC;oBAAE,WAAU;8BACV,WAAW,OAAO,oBAAoB;;;;;;;;;;;;;;;;;AAKjD;GAdwB;;QACP,qIAAA,CAAA,YAAS;;;KADF","debugId":null}}]
+}

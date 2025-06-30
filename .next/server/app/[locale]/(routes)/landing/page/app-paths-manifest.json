@@ -1,0 +1,3 @@
+{
+  "/[locale]/(routes)/landing/page": "app/[locale]/(routes)/landing/page.js"
+}
