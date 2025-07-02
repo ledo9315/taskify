@@ -42,7 +42,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
         description={task.description || ""}
         className="border-b border-border pb-3"
       />
-      <div className="flex items-start justify-between mt-6 flex-col md:flex-row md:items-center gap-y-2">
+      <div className="flex items-start justify-between mt-6 flex-col md:flex-row md:items-center gap-x333y-2">
         <TaskItemTags tags={task.tags} />
         <TaskItemDate
           createdAt={task.createdAt}
