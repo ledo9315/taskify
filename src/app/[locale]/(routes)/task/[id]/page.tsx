@@ -97,7 +97,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 </div>
                 <div className="bg-muted/30 border border-border/40 rounded-lg p-4">
                   <TaskItemDescription
-                    description={description}
+                    description={description ?? ""}
                     className="prose dark:prose-invert max-w-none"
                   />
                 </div>
