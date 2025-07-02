@@ -39,7 +39,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
         </div>
       </div>
       <TaskItemDescription
-        description={task.description}
+        description={task.description ?? ""}
         className="border-b border-border pb-3"
       />
       <div className="flex items-start justify-between mt-6 flex-col md:flex-row md:items-center gap-y-2">
