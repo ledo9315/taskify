@@ -277,15 +277,6 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             <Controller
               name="tags"
               control={control}
-              rules={{
-                validate: (tags) =>
-                  tags && tags.length > 0
-                    ? true
-                    : formatMessage({
-                        id: "TaskForm.tags.id",
-                        defaultMessage: "Bitte mindestens einen Tag hinzufügen",
-                      }),
-              }}
               render={({ field }) => (
                 <div className="space-y-2">
                   <TagInput

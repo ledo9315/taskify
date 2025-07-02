@@ -41,7 +41,7 @@
   "TaskForm.title.required": "Titel ist erforderlich",
   "TaskForm.labels.title": "Titel",
   "TaskForm.labels.description": "Beschreibung (optional)",
-  "TaskForm.labels.tags": "Tags",
+  "TaskForm.labels.tags": "Tags (optional)",
   "TaskForm.labels.priority": "Priorität",
   "TaskForm.priority.placeholder": "Priorität auswählen",
   "TaskForm.priority.low": "Niedrig",

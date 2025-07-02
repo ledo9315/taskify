@@ -422,7 +422,7 @@ export function AppSidebar() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="w-full justify-between h-auto p-2 hover:bg-secondary/80 text-left"
+                      className="w-full justify-between h-auto p-2 hover:bg-secondary/80 text-left cursor-pointer"
                     >
                       <div className="flex items-center gap-2 min-w-0 flex-1">
                         <Hash className="h-4 w-4 flex-shrink-0" />
@@ -520,7 +520,7 @@ export function AppSidebar() {
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
-              className="w-full justify-between h-auto p-2 hover:bg-secondary/80"
+              className="w-full justify-between h-auto p-2 hover:bg-secondary/80 cursor-pointer"
             >
               <div className="flex items-center gap-2 min-w-0 flex-1">
                 <Avatar className="w-8 h-8 rounded-lg flex-shrink-0">

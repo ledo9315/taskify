@@ -48,7 +48,7 @@ export const TagInput = ({ tags, setTags, className }: TagInputProps) => {
       <label htmlFor="tags" className="block mb-2 text-sm font-normal">
         {formatMessage({
           id: "TaskForm.labels.tags",
-          defaultMessage: "Tags",
+          defaultMessage: "Tags (optional)",
         })}
       </label>
       <div className="relative">
