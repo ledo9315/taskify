@@ -73,7 +73,11 @@ export function LanguageToggle() {
         {Object.keys(messages).map((localeKey) => {
           const locale = localeKey as Locale;
           return (
-            <SelectItem className="cursor-pointer" key={locale} value={locale}>
+            <SelectItem
+              className="cursor-pointer hover:bg-accent/30"
+              key={locale}
+              value={locale}
+            >
               {localeDisplayNames[locale]}
             </SelectItem>
           );
