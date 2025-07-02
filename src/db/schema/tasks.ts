@@ -11,7 +11,7 @@ export const tasksTable = pgTable("tasks", {
   id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   title: text("title").notNull(),
   complete: boolean("complete").notNull().default(false),
-  description: text("description").notNull(),
+  description: text("description"),
   userId: text("user_id").notNull().default("default_user"),
   dueDate: timestamp("due_date"),
   tags: json("tags").$type<string[]>().default([]),

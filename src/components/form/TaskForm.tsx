@@ -211,39 +211,18 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             <Controller
               name="description"
               control={control}
-              rules={{
-                required: formatMessage({
-                  id: "TaskForm.description.required",
-                  defaultMessage: "Beschreibung ist erforderlich",
-                }),
-                minLength: {
-                  value: 3,
-                  message: formatMessage({
-                    id: "TaskForm.description.minLength",
-                    defaultMessage:
-                      "Beschreibung muss mindestens 3 Zeichen lang sein",
-                  }),
-                },
-                validate: (description) =>
-                  description.trim() !== ""
-                    ? true
-                    : formatMessage({
-                        id: "TaskForm.description.notEmpty",
-                        defaultMessage: "Beschreibung darf nicht leer sein",
-                      }),
-              }}
               render={({ field }) => (
                 <div className="space-y-2">
                   <FormTextarea
                     id="description"
                     label={formatMessage({
                       id: "TaskForm.labels.description",
-                      defaultMessage: "Beschreibung",
+                      defaultMessage: "Beschreibung (optional)",
                     })}
                     className={
                       errors.description && "border-red-500 dark:border-red-500"
                     }
-                    value={field.value}
+                    value={field.value || ""}
                     onChange={field.onChange}
                   />
                   {errors.description && (
@@ -327,7 +306,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
           </CardContent>
           <CardFooter className="pb-6 px-6 flex flex-col gap-4">
             <Button
-              className="w-full py-3 text-base"
+              className="w-full py-3 text-base cursor-pointer"
               type="submit"
               disabled={isSubmitting}
             >
@@ -346,7 +325,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             <Button
               type="button"
               variant="outline"
-              className="w-full py-3 text-base"
+              className="w-full py-3 text-base cursor-pointer"
               onClick={handleCancel}
               disabled={isSubmitting}
             >
