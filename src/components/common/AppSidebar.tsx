@@ -35,7 +35,7 @@ import {
 import { Avatar } from "@radix-ui/react-avatar";
 import { AvatarFallback, AvatarImage } from "../ui/avatar";
 import { authClient } from "@/src/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Badge } from "../ui/badge";
 
@@ -45,6 +45,7 @@ export function AppSidebar() {
   const router = useRouter();
   const { formatMessage } = useIntl();
   const { data: session } = authClient.useSession();
+  const { locale } = useParams();
 
   // State to track if component has mounted (hydrated)
   const [isMounted, setIsMounted] = useState(false);
@@ -172,7 +173,7 @@ export function AppSidebar() {
 
     switch (action) {
       case "account":
-        // Account settings logic
+        router.push(`/${locale}/account`);
         break;
       case "logout":
         await authClient.signOut({
