@@ -6,7 +6,7 @@ import TanstackQueryProvider from "@src/components/provider/TanstackQueryProvide
 import { Toaster } from "@src/components/ui/sonner";
 import { Locale } from "@src/components/locale/locale";
 import LocaleProvider from "@src/components/provider/LocaleProvider";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   title: "Aufgaben-Planer | Produktivität optimieren",
   description:
@@ -34,6 +34,7 @@ export default function RootLayout({
           </ThemeProvider>
         </LocaleProvider>
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
