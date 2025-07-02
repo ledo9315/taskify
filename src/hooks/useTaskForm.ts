@@ -5,7 +5,7 @@ import { useUpdateTask } from "./server-actions/useUpdateTask";
 import { useCreateTask } from "./server-actions/useCreateTask";
 import { useForm } from "react-hook-form";
 import { Task } from "@/types/task";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export interface TaskInputFormProps {
   className?: string;
@@ -13,17 +13,25 @@ export interface TaskInputFormProps {
 }
 
 export const useTaskForm = ({ task }: TaskInputFormProps) => {
-  const { handleUpdateTask, isSuccessUpdateMutation: isUpdateSuccess } =
-    useUpdateTask();
-  const { handleCreateTask, isSuccessCreateMutation: isCreateSuccess } =
-    useCreateTask();
+  const {
+    handleUpdateTask,
+    isSuccessUpdateMutation: isUpdateSuccess,
+    isPendingUpdateMutation: isUpdatePending,
+  } = useUpdateTask();
+  const {
+    handleCreateTask,
+    isSuccessCreateMutation: isCreateSuccess,
+    isPendingCreateMutation: isCreatePending,
+  } = useCreateTask();
   const router = useRouter();
   const params = useParams();
+
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const {
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<Omit<Task, "complete" | "id"> & { tags: string[] }>({
     defaultValues: {
       title: task?.title || "",
@@ -37,6 +45,12 @@ export const useTaskForm = ({ task }: TaskInputFormProps) => {
   const onSubmit = (
     data: Pick<Task, "title" | "description" | "tags" | "dueDate" | "priority">
   ) => {
+    if (isProcessing || isUpdatePending || isCreatePending) {
+      return;
+    }
+
+    setIsProcessing(true);
+
     if (task) {
       handleUpdateTask({
         id: task.id,
@@ -78,12 +92,20 @@ export const useTaskForm = ({ task }: TaskInputFormProps) => {
     }
   }, [isCreateSuccess, router, params]);
 
+  useEffect(() => {
+    if (!isUpdatePending && !isCreatePending) {
+      setIsProcessing(false);
+    }
+  }, [isUpdatePending, isCreatePending]);
+
+  const isFormSubmitting = isProcessing || isUpdatePending || isCreatePending;
+
   const errorMessages = Object.values(errors).map((err) => err?.message ?? "");
   return {
     control,
     handleSubmit,
     handleCancel,
-    isSubmitting,
+    isSubmitting: isFormSubmitting,
     errors,
     onSubmit,
     errorMessages,
