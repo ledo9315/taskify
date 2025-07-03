@@ -1,12 +1,20 @@
+import { cn } from "@/src/lib/utils";
+
 interface TaskItemTagsProps {
   tags: string[];
+  className?: string;
 }
 
-export const TaskItemTags = ({ tags }: TaskItemTagsProps) => {
+export const TaskItemTags = ({ tags, className }: TaskItemTagsProps) => {
   return (
     <>
       {tags && tags.length > 0 && (
-        <div className="flex flex-wrap gap-2.5 max-w-1/2">
+        <div
+          className={cn(
+            "flex justify-end md:justify-start flex-wrap gap-2.5 w-full h-2",
+            className
+          )}
+        >
           {tags.map((tag, index) => (
             <span
               key={index}
