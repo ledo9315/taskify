@@ -7,6 +7,7 @@ import { Toaster } from "@src/components/ui/sonner";
 import { Locale } from "@src/components/locale/locale";
 import LocaleProvider from "@src/components/provider/LocaleProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Aufgaben-Planer | Produktivität optimieren",
   description:
@@ -35,6 +36,7 @@ export default function RootLayout({
         </LocaleProvider>
         <Toaster />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
