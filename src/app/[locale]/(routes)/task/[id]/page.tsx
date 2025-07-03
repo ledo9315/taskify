@@ -5,7 +5,7 @@ import { useTaskQuery } from "@/src/hooks/server-actions/useTaskQuery";
 import { TaskItemActions } from "@/src/components/task/TaskItemActions";
 import { TaskItemDescription } from "@/src/components/task/TaskItemDescription";
 import { TaskItemTags } from "@/src/components/task/TaskItemTags";
-import { ArrowLeft, Calendar, Tag, FileText } from "lucide-react";
+import { Calendar, Tag, FileText } from "lucide-react";
 import { TaskItemDate } from "@/src/components/task/TaskItemDate";
 import { Card, CardContent, CardHeader } from "@/src/components/ui/card";
 import { FormattedMessage } from "react-intl";
@@ -13,13 +13,11 @@ import { use } from "react";
 
 import { FormContainer } from "@/src/components/common/FormContainer";
 import { Navigation } from "@/src/components/common/Navigation";
-import { Button } from "@/src/components/ui/button";
-import { useRouter } from "next/navigation";
 import { TaskItemPriority } from "@/src/components/task/TaskItemPriority";
+import { BackToDashboardButton } from "@/src/components/ui/back-to-dashboard";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const router = useRouter();
 
   const task = useTaskQuery(Number(id));
 
@@ -67,6 +65,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     <>
       <Navigation className="mb-20" />
       <FormContainer size="4xl">
+        <BackToDashboardButton className="mb-6" />
         <Card className="border-border bg-card mb-6">
           <CardHeader className="border-b border-border pb-6">
             <div className="flex items-center justify-between mb-4">
@@ -141,20 +140,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             </div>
           </CardContent>
         </Card>
-
-        <div className="flex gap-4 justify-center">
-          <Button
-            variant="ghost"
-            className="gap-2 bg-accent/10 hover:bg-accent/20 transition-colors cursor-pointer"
-            onClick={() => router.back()}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <FormattedMessage
-              defaultMessage={"Zurück zur Startseite"}
-              id="Navigation.back"
-            />
-          </Button>
-        </div>
       </FormContainer>
     </>
   );

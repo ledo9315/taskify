@@ -13,7 +13,7 @@ import { Label } from "@/src/components/ui/label";
 import { Key, Loader2 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
-import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
+import usePasswordRequirements from "@/src/components/common/PasswordRequirements";
 
 interface PasswordChangeFormData {
   currentPassword: string;

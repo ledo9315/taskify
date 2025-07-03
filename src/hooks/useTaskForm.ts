@@ -31,6 +31,7 @@ export const useTaskForm = ({ task }: TaskInputFormProps) => {
   const {
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Omit<Task, "complete" | "id"> & { tags: string[] }>({
     defaultValues: {
@@ -108,6 +109,7 @@ export const useTaskForm = ({ task }: TaskInputFormProps) => {
     isSubmitting: isFormSubmitting,
     errors,
     onSubmit,
+    watch,
     errorMessages,
   };
 };

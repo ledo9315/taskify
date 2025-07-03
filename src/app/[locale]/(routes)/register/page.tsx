@@ -24,7 +24,7 @@ import { useState } from "react";
 import { Loader2, X } from "lucide-react";
 import { convertImageToBase64 } from "@/src/utils/imageUtils";
 import { useRouter } from "next/navigation";
-import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
+import usePasswordRequirements from "@/src/components/common/PasswordRequirements";
 
 interface RegisterFormData {
   firstName: string;
