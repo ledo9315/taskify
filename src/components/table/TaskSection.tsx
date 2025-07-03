@@ -21,8 +21,6 @@ export const TaskSection = ({
 }: Props) => {
   const { formatMessage } = useIntl();
 
-  console.log(tasks);
-
   if (isPending) {
     return (
       <div className="py-4 px-3 bg-secondary/50 border-l-2 border-accent">

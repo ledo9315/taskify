@@ -36,7 +36,6 @@ export function Dashboard({ className }: MainPageContentProps) {
   const [sortCriteria, setSortCriteria] = useState<SortCriteria>("due");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
-  // Kombiniere Kriterium und Richtung für die TaskPanel-Kompatibilität
   const sortBy =
     sortDirection === "desc" ? `${sortCriteria}-desc` : sortCriteria;
 
