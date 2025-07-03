@@ -12,7 +12,7 @@ import {
 } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
-import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
+import usePasswordRequirements from "@/src/components/common/PasswordRequirements";
 import { authClient } from "@/src/lib/auth-client";
 import { Loader2, KeyRound, CheckCircle } from "lucide-react";
 import Link from "next/link";

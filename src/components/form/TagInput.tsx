@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "../ui/input";
 import { CornerDownLeft } from "lucide-react";
 import { TagBadge } from "@src/components/form/TagBadge";
@@ -9,12 +9,25 @@ interface TagInputProps {
   tags: string[];
   setTags: (tags: string[]) => void;
   className?: string;
+  onDirtyChange?: (isDirty: boolean) => void;
 }
 
-export const TagInput = ({ tags, setTags, className }: TagInputProps) => {
+export const TagInput = ({
+  tags,
+  setTags,
+  className,
+  onDirtyChange,
+}: TagInputProps) => {
   const [tagInput, setTagInput] = useState("");
   const [tagError, setTagError] = useState<string | null>(null);
   const { formatMessage } = useIntl();
+
+  useEffect(() => {
+    const dirty = tagInput.trim() !== "" && tagInput.length > 0;
+    if (onDirtyChange) {
+      onDirtyChange(dirty);
+    }
+  }, [tagInput, onDirtyChange]);
 
   const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && tagInput.trim() !== "") {

@@ -2,7 +2,7 @@
 
 import { FormContainer } from "@/src/components/common/FormContainer";
 import { Navigation } from "@/src/components/common/Navigation";
-import { Loader2, ArrowLeft, LogOut } from "lucide-react";
+import { Loader2, LogOut } from "lucide-react";
 import { useState, useEffect, use } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { toast } from "sonner";
@@ -11,6 +11,7 @@ import { authClient } from "@/src/lib/auth-client";
 import { Button } from "@/src/components/ui/button";
 import { useRouter } from "next/navigation";
 import { PersonalInfoCard, PasswordChangeCard } from "@/src/components/account";
+import { BackToDashboardButton } from "@/src/components/ui/back-to-dashboard";
 
 interface PersonalInfoFormData {
   firstName: string;
@@ -66,10 +67,6 @@ export default function AccountPage({
     };
     getSession();
   }, []);
-
-  const handleBackToDashboard = () => {
-    router.push(`/${locale}`);
-  };
 
   const handleSignOut = async () => {
     setIsSigningOut(true);
@@ -202,17 +199,7 @@ export default function AccountPage({
       <Navigation />
       <div className="space-y-6 max-w-4xl mx-auto py-20">
         <div className="flex justify-between items-center mb-6">
-          <Button
-            variant="outline"
-            onClick={handleBackToDashboard}
-            className="flex items-center gap-2 cursor-pointer"
-          >
-            <ArrowLeft size={16} />
-            <FormattedMessage
-              id="Account.backToDashboard"
-              defaultMessage="Zurück zum Dashboard"
-            />
-          </Button>
+          <BackToDashboardButton />
           <Button
             variant="outline"
             onClick={handleSignOut}

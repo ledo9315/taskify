@@ -37,7 +37,7 @@ export const TaskItemActions = ({
       >
         <button
           onClick={() => handleToggleTask(id, complete)}
-          className="px-2.5 py-0.5 transition-all duration-200 cursor-pointer hover:bg-gray-100 rounded-md"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {complete ? (
             <Undo className="w-4 h-4 text-gray-500" />
@@ -48,14 +48,14 @@ export const TaskItemActions = ({
         <button
           onClick={() => router.push(`/${locale}/edit/${id}`)}
           disabled={isPendingToggleMutation}
-          className="px-2.5 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200"
         >
           <Pencil className="w-4 h-4 text-gray-500" />
         </button>
         <button
           onClick={() => handleDeleteTask(id, title)}
           disabled={isPendingDeleteMutation}
-          className="px-2.5 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200"
         >
           <Trash className="w-4 h-4 text-gray-500" />
         </button>

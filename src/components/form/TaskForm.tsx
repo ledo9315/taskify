@@ -28,6 +28,7 @@ import {
 } from "../ui/select";
 import { Label } from "../ui/label";
 import { Save, Plus } from "lucide-react";
+import { useState } from "react";
 
 interface TaskInputFormProps {
   className?: string;
@@ -48,6 +49,7 @@ const getPriorityColor = (priority: number) => {
 };
 
 export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
+  const [isTagInputDirty, setIsTagInputDirty] = useState(false);
   const {
     control,
     handleSubmit,
@@ -55,6 +57,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
     errors,
     handleCancel,
     onSubmit,
+    watch,
     errorMessages,
   } = useTaskForm({ task });
 
@@ -274,24 +277,34 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             </div>
 
             {/* Tags Field */}
-            <Controller
-              name="tags"
-              control={control}
-              render={({ field }) => (
-                <div className="space-y-2">
-                  <TagInput
-                    tags={field.value}
-                    setTags={field.onChange}
-                    className={errors.tags && "border-red-500"}
-                  />
-                  {errors.tags && (
-                    <p className="text-sm text-red-600 dark:text-red-400">
-                      {errors.tags.message}
-                    </p>
-                  )}
-                </div>
-              )}
-            />
+            <div className="flex flex-col">
+              <Controller
+                name="tags"
+                control={control}
+                render={({ field }) => (
+                  <div className="space-y-2">
+                    <TagInput
+                      tags={field.value}
+                      setTags={field.onChange}
+                      onDirtyChange={setIsTagInputDirty}
+                      className={errors.tags && "border-red-500"}
+                    />
+                    {errors.tags && (
+                      <p className="text-sm text-red-600 dark:text-red-400">
+                        {errors.tags.message}
+                      </p>
+                    )}
+                  </div>
+                )}
+              />
+              {watch("tags") &&
+                watch("tags").length === 0 &&
+                isTagInputDirty && (
+                  <span className="text-sm text-yellow-600 dark:text-yellow-400 mb-5">
+                    Drücke die Enter-Taste, um ein Tag hinzuzufügen
+                  </span>
+                )}
+            </div>
 
             <ValidationErrors errors={errorMessages} />
           </CardContent>
