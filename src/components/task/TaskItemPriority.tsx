@@ -45,7 +45,7 @@ export const TaskItemPriority = ({ priority }: TaskItemPriorityProps) => {
   return (
     <Badge
       className={cn(
-        "flex items-center gap-1.5 text-xs font-medium px-3 py-1 border transition-all duration-200 rounded-md backdrop-blur-sm",
+        "flex items-center gap-0.5 text-xs font-medium px-2.5 pl-1.5 py-1 border transition-all duration-200 rounded-md backdrop-blur-sm",
         config.className
       )}
     >

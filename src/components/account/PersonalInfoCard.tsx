@@ -238,12 +238,6 @@ export function PersonalInfoCard({
                 />
               )}
             />
-            <p className="text-xs text-muted-foreground">
-              <FormattedMessage
-                id="Account.email.note"
-                defaultMessage="E-Mail-Adresse kann derzeit nicht geändert werden"
-              />
-            </p>
           </div>
 
           <Button className="cursor-pointer" type="submit" disabled={isLoading}>
