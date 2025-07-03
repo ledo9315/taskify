@@ -19,12 +19,12 @@ export function TaskEditor({
 
   if (taskQuery.isError) {
     return (
-      <div>
+      <>
         <FormattedMessage
           defaultMessage="Fehler beim Laden der Aufgabe."
           id="TaskEditor.errorMessage"
         />
-      </div>
+      </>
     );
   }
 

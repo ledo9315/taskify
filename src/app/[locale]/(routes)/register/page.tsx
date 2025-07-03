@@ -24,6 +24,7 @@ import { useState } from "react";
 import { Loader2, X } from "lucide-react";
 import { convertImageToBase64 } from "@/src/utils/imageUtils";
 import { useRouter } from "next/navigation";
+import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
 
 interface RegisterFormData {
   firstName: string;
@@ -66,6 +67,8 @@ export default function RegisterPage() {
   } = useForm<RegisterFormData>({
     mode: "onSubmit",
   });
+
+  const passwordRequirements = usePasswordRequirements(watch("password"));
 
   const onSubmit = async (formData: RegisterFormData) => {
     const { error: signupError } = await authClient.signUp.email(
@@ -277,12 +280,13 @@ export default function RegisterPage() {
                           id: "Register.validation.passwordRequired",
                           defaultMessage: "Passwort ist erforderlich",
                         }),
-                        minLength: {
-                          value: 6,
+                        pattern: {
+                          value:
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                           message: intl.formatMessage({
-                            id: "Register.validation.passwordMinLength",
+                            id: "Register.validation.passwordComplexity",
                             defaultMessage:
-                              "Passwort muss mindestens 6 Zeichen lang sein",
+                              "Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl, ein Großbuchstabe, ein Kleinbuchstabe und ein Sonderzeichen enthalten",
                           }),
                         },
                       }}
@@ -295,6 +299,8 @@ export default function RegisterPage() {
                         />
                       )}
                     />
+
+                    {passwordRequirements}
                     {errors.password && (
                       <span className="text-red-500 text-sm">
                         {errors.password.message}

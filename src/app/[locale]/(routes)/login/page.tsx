@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card";
+import { Checkbox } from "@/src/components/ui/checkbox";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { authClient } from "@/src/lib/auth-client";
@@ -27,6 +28,7 @@ interface LoginFormData {
   email: string;
   password: string;
   callbackUrl?: string;
+  rememberMe: boolean;
 }
 
 export default function LoginPage() {
@@ -35,6 +37,7 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [rememberMe, setRememberMe] = useState(true);
 
   useEffect(() => {
     if (searchParams?.get("emailVerified") === "1") {
@@ -64,6 +67,7 @@ export default function LoginPage() {
       {
         email: formData.email,
         password: formData.password,
+        rememberMe: true,
         callbackURL: `/${locale}`,
       },
       {
@@ -243,6 +247,21 @@ export default function LoginPage() {
                         {errors.password.message}
                       </span>
                     )}
+                  </div>
+                  <div className="flex gap-2">
+                    <Checkbox
+                      checked={rememberMe}
+                      onCheckedChange={(checked) =>
+                        setRememberMe(checked === true)
+                      }
+                      id="rememberMe"
+                    />
+                    <Label htmlFor="rememberMe">
+                      <FormattedMessage
+                        id="Login.rememberMe"
+                        defaultMessage="Angemeldet bleiben"
+                      />
+                    </Label>
                   </div>
                 </div>
                 <CardFooter className="flex-col gap-2 px-0 pt-6">

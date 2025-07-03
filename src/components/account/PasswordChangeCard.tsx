@@ -13,6 +13,7 @@ import { Label } from "@/src/components/ui/label";
 import { Key, Loader2 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
+import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
 
 interface PasswordChangeFormData {
   currentPassword: string;
@@ -35,6 +36,7 @@ export function PasswordChangeCard({
     handleSubmit,
     control,
     reset,
+    watch,
     formState: { errors },
   } = useForm<PasswordChangeFormData>({
     mode: "onSubmit",
@@ -49,6 +51,8 @@ export function PasswordChangeCard({
     await onSubmit(data);
     reset();
   };
+
+  const passwordRequirements = usePasswordRequirements(watch("newPassword"));
 
   return (
     <Card>
@@ -111,19 +115,26 @@ export function PasswordChangeCard({
                   id: "Account.validation.newPasswordRequired",
                   defaultMessage: "Neues Passwort ist erforderlich",
                 }),
-                minLength: {
-                  value: 6,
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                   message: intl.formatMessage({
-                    id: "Account.validation.passwordMinLength",
+                    id: "Account.validation.passwordComplexity",
                     defaultMessage:
-                      "Passwort muss mindestens 6 Zeichen lang sein",
+                      "Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl, ein Großbuchstabe, ein Kleinbuchstabe und ein Sonderzeichen enthalten",
                   }),
                 },
               }}
               render={({ field }) => (
-                <Input {...field} id="newPassword" type="password" />
+                <Input
+                  {...field}
+                  id="newPassword"
+                  type="password"
+                  className={errors.newPassword ? "border-red-500" : ""}
+                />
               )}
             />
+            {passwordRequirements}
             {errors.newPassword && (
               <span className="text-red-500 text-sm">
                 {errors.newPassword.message}
