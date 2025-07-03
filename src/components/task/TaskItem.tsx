@@ -42,9 +42,13 @@ const TaskItem = ({ task }: TaskItemProps) => {
         description={task.description || ""}
         className="border-b border-border pb-3"
       />
-      <div className="flex items-start justify-between mt-6 flex-col md:flex-row md:items-center gap-x333y-2">
-        <TaskItemTags tags={task.tags} />
+      <div className="grid grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-2 gap-x-6 gap-y-6 mt-6">
+        <TaskItemTags
+          className="row-start-2 col-start-1 col-span-2 md:row-start-1 md:col-span-1"
+          tags={task.tags}
+        />
         <TaskItemDate
+          className="row-start-1 col-span-2"
           createdAt={task.createdAt}
           updatedAt={task.updatedAt || null}
           dueDate={task.dueDate || null}

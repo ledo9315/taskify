@@ -1,3 +1,4 @@
+import { cn } from "@/src/lib/utils";
 import { usePathname } from "next/navigation";
 import {
   FormattedDate,
@@ -10,12 +11,14 @@ interface TaskItemDateProps {
   createdAt: Date;
   updatedAt: Date | null;
   dueDate?: Date | null;
+  className?: string;
 }
 
 export const TaskItemDate = ({
   createdAt,
   updatedAt,
   dueDate,
+  className,
 }: TaskItemDateProps) => {
   const { formatMessage } = useIntl();
   const pathname = usePathname();
@@ -120,9 +123,11 @@ export const TaskItemDate = ({
 
   return (
     <div
-      className={`flex flex-col gap-y-1 ${
-        isTaskPage ? "items-start" : "items-end"
-      }`}
+      className={cn(
+        "flex flex-col gap-y-1",
+        isTaskPage ? "items-start" : "items-end",
+        className
+      )}
     >
       {renderDueDateContent()}
 
