@@ -12,6 +12,7 @@ import {
 } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
+import usePasswordRequirements from "@/src/hooks/usePasswordRequirements";
 import { authClient } from "@/src/lib/auth-client";
 import { Loader2, KeyRound, CheckCircle } from "lucide-react";
 import Link from "next/link";
@@ -60,6 +61,8 @@ export default function ResetPasswordPage() {
     mode: "onSubmit",
     shouldUseNativeValidation: false,
   });
+
+  const passwordRequirements = usePasswordRequirements(watch("newPassword"));
 
   const onSubmit = async (formData: ResetPasswordFormData) => {
     if (!token) return;
@@ -166,12 +169,13 @@ export default function ResetPasswordPage() {
                           defaultMessage:
                             "Ein neues Passwort ist erforderlich.",
                         }),
-                        minLength: {
-                          value: 8,
+                        pattern: {
+                          value:
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                           message: intl.formatMessage({
-                            id: "ResetPassword.validation.passwordLength",
+                            id: "ResetPassword.validation.passwordMinLength",
                             defaultMessage:
-                              "Das Passwort muss mindestens 8 Zeichen lang sein.",
+                              "Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl, ein Großbuchstabe, ein Kleinbuchstabe und ein Sonderzeichen enthalten",
                           }),
                         },
                       }}
@@ -184,6 +188,8 @@ export default function ResetPasswordPage() {
                         />
                       )}
                     />
+                    {passwordRequirements}
+
                     {errors.newPassword && (
                       <span className="text-red-500 text-sm">
                         {errors.newPassword.message}

@@ -143,6 +143,7 @@
   "Login.loginFailed": "Login failed. Please try again.",
   "Login.resendVerification": "Resend verification email",
   "Login.ForgotPassword": "Forgot your password?",
+  "Login.rememberMe": "Remember me",
   "Register.title": "Create an account",
   "Register.description": "Enter your details below to create your account",
   "Register.signInLink": "Sign In",
@@ -167,6 +168,7 @@
   "Register.validation.lastNameMinLength": "Last name must be at least 2 characters long",
   "Register.validation.passwordRequired": "Password is required",
   "Register.validation.passwordMinLength": "Password must be at least 6 characters long",
+  "Register.validation.passwordComplexity": "Password must be at least 8 characters long and contain at least one number, one uppercase letter, one lowercase letter and one special character",
   "Register.validation.confirmPasswordRequired": "Password is required",
   "Register.validation.passwordMismatch": "Passwords do not match",
   "Toast.taskCreateError": "Error creating task",
@@ -208,6 +210,7 @@
   "ResetPassword.error.general": "Failed to reset password. The link may have expired.",
   "ResetPassword.validation.passwordRequired": "A new password is required.",
   "ResetPassword.validation.passwordLength": "The password must be at least 8 characters long.",
+  "ResetPassword.validation.passwordMinLength": "Password must be at least 8 characters long and contain at least one number, one uppercase letter, one lowercase letter and one special character",
   "ResetPassword.validation.confirmPasswordRequired": "Password confirmation is required.",
   "ResetPassword.validation.passwordMismatch": "Passwords do not match",
   "ResetPassword.confirmPassword": "Confirm Password",
@@ -248,6 +251,7 @@
   "Account.validation.currentPasswordRequired": "Current password is required",
   "Account.validation.newPasswordRequired": "New password is required",
   "Account.validation.passwordMinLength": "Password must be at least 6 characters long",
+  "Account.validation.passwordComplexity": "Password must be at least 8 characters long and contain at least one number, one uppercase letter, one lowercase letter and one special character",
   "Account.validation.confirmPasswordRequired": "Password confirmation is required",
   "Account.updateError": "Error updating data",
   "Account.updateSuccess": "Data successfully updated",
@@ -256,5 +260,10 @@
   "Account.passwordChangeSuccess": "Password successfully changed",
   "Account.backToDashboard": "Back to Dashboard",
   "Account.signOut": "Sign Out",
-  "Account.signOutError": "Error signing out"
+  "Account.signOutError": "Error signing out",
+  "Account.passwordRequirements.minLength": "At least 8 characters",
+  "Account.passwordRequirements.hasNumber": "At least one number",
+  "Account.passwordRequirements.hasUppercase": "At least one uppercase letter",
+  "Account.passwordRequirements.hasLowercase": "At least one lowercase letter",
+  "Account.passwordRequirements.hasSpecialChar": "At least one special character"
 }
