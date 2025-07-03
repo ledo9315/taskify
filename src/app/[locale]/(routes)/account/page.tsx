@@ -12,6 +12,7 @@ import { Button } from "@/src/components/ui/button";
 import { useRouter } from "next/navigation";
 import { PersonalInfoCard, PasswordChangeCard } from "@/src/components/account";
 import { BackToDashboardButton } from "@/src/components/ui/back-to-dashboard";
+import Loading from "@/src/app/loading";
 
 interface PersonalInfoFormData {
   firstName: string;
@@ -184,14 +185,7 @@ export default function AccountPage({
   };
 
   if (!session) {
-    return (
-      <FormContainer size="lg">
-        <Navigation />
-        <div className="flex items-center justify-center min-h-[400px]">
-          <Loader2 className="h-8 w-8 animate-spin" />
-        </div>
-      </FormContainer>
-    );
+    return <Loading />;
   }
 
   return (
