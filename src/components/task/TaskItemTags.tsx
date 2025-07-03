@@ -11,7 +11,7 @@ export const TaskItemTags = ({ tags, className }: TaskItemTagsProps) => {
       {tags && tags.length > 0 && (
         <div
           className={cn(
-            "flex justify-end md:justify-start flex-wrap gap-2.5 w-full h-2",
+            "flex justify-end md:justify-start flex-wrap gap-2.5 w-full",
             className
           )}
         >
