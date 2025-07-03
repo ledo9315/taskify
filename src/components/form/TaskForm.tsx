@@ -239,12 +239,6 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
 
             {/* Due Date Field */}
             <div className="space-y-2">
-              <Label className="text-sm font-medium">
-                {formatMessage({
-                  id: "TaskForm.labels.dueDate",
-                  defaultMessage: "Fälligkeitsdatum (optional)",
-                })}
-              </Label>
               <Controller
                 name="dueDate"
                 control={control}

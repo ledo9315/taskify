@@ -160,7 +160,7 @@ export function Dashboard({ className }: MainPageContentProps) {
 
       <div className="pt-16">
         <Container>
-          <div className="max-w-4xl mx-auto w-full py-16 px-4 sm:px-6">
+          <div className="flex flex-col min-h-[calc(100vh-4rem)] pt-16 pb-0 px-4 sm:px-6">
             <header className="mb-12">
               <div className="flex items-center justify-between border-b border-primary/30 pb-4">
                 <div className="flex items-center gap-2">
@@ -213,14 +213,14 @@ export function Dashboard({ className }: MainPageContentProps) {
                 </div>
               </div>
             </header>
-            <main className="mt-12 animate-fade-in">
+            <main className="animate-fade-in flex-1">
               <TaskPanel
                 view={activeView}
                 selectedTag={selectedTag}
                 sortBy={sortBy}
               />
             </main>
-            <Footer />
+            <Footer className="" />
           </div>
         </Container>
       </div>
