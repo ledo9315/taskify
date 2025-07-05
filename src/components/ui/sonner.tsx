@@ -13,10 +13,13 @@ const Toaster = ({ ...props }: ToasterProps) => {
       position="top-center"
       toastOptions={{
         classNames: {
-          description: "dark:!text-[#e0e0e0]",
+          toast:
+            "group toast group-[.toaster]:bg-card group-[.toaster]:text-card-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          description: "group-[.toast]:text-muted-foreground",
           actionButton:
-            "rounded-none dark:bg-[#2d2d2d] dark:hover:bg-[#3a3a3a]",
-          cancelButton: "dark:!text-gray-300",
+            "group-[.toast]:bg-accent group-[.toast]:text-accent-foreground",
+          cancelButton:
+            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
         },
       }}
       {...props}
