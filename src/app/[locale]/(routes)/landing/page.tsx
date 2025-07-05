@@ -9,9 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card";
-import { Plus, Calendar, Tag, ArrowRight } from "lucide-react";
+import { Plus, Calendar, Tag, ArrowRight, CheckCircle } from "lucide-react";
 import { LanguageToggle } from "@/src/components/common/LanguageToggle";
 import { ThemeToggle } from "@/src/components/common/ThemeToggle";
+import Footer from "@/src/components/common/Footer";
 import { FormattedMessage } from "react-intl";
 import { use } from "react";
 
@@ -44,26 +45,35 @@ export default function LandingPage({
       </nav>
 
       {/* Hero Section */}
-      <section className="container max-w-4xl mx-auto px-6 py-20">
+      <section className="relative container max-w-4xl mx-auto px-6 py-20">
         <div className="text-center space-y-8">
-          <h1 className="text-4xl sm:text-6xl font-medium tracking-tight">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full text-sm font-medium text-accent mb-6">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+            <FormattedMessage
+              id="Landing.badge.new"
+              defaultMessage="Komplett kostenlos"
+            />
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl font-medium tracking-tight leading-tight">
             <FormattedMessage
               id="Landing.hero.title"
-              defaultMessage="Task Management"
+              defaultMessage="Task-Management"
             />
             <br />
             <span className="text-accent">
               <FormattedMessage
                 id="Landing.hero.titleAccent"
-                defaultMessage="einfach gemacht"
+                defaultMessage="neu gedacht"
               />
             </span>
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             <FormattedMessage
               id="Landing.hero.subtitle"
-              defaultMessage="Erstelle, organisiere und verwalte deine Aufgaben mit Tags, Prioritäten und Deadlines."
+              defaultMessage="Erstelle, organisiere und verwalte deine Aufgaben intuitiv. Mit Tags, Prioritäten und Deadlines behältst du immer den Überblick."
             />
           </p>
 
@@ -71,11 +81,11 @@ export default function LandingPage({
             <Link href={`/${locale}/register`}>
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-3 h-auto cursor-pointer"
+                className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-3 h-auto cursor-pointer transition-all duration-300 hover:scale-105"
               >
                 <FormattedMessage
                   id="Landing.hero.registerButton"
-                  defaultMessage="Kostenlos starten"
+                  defaultMessage="Jetzt kostenlos starten"
                 />
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -84,14 +94,30 @@ export default function LandingPage({
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto font-medium px-8 py-3 h-auto cursor-pointer"
+                className="w-full sm:w-auto font-medium px-8 py-3 h-auto cursor-pointer transition-all duration-300 hover:scale-105"
               >
                 <FormattedMessage
                   id="Landing.hero.loginButton"
-                  defaultMessage="Anmelden"
+                  defaultMessage="Bereits registriert? Anmelden"
                 />
               </Button>
             </Link>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-6 pt-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>100% kostenlos</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>Sofort nutzbar</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>Open Source</span>
+            </div>
           </div>
         </div>
       </section>
@@ -107,22 +133,22 @@ export default function LandingPage({
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full text-sm font-medium text-accent mb-6">
-              <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-accent rounded-full"></div>
               <FormattedMessage
-                id="Landing.badge.new"
-                defaultMessage="Komplett kostenlos und Open Source"
+                id="Landing.dashboard.badge"
+                defaultMessage="Frisch gelauncht"
               />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
               <FormattedMessage
                 id="Landing.dashboard.title"
-                defaultMessage="Dein persönliches Dashboard"
+                defaultMessage="Deine neue Task-Zentrale"
               />
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               <FormattedMessage
                 id="Landing.dashboard.subtitle"
-                defaultMessage="Behalte alle deine Aufgaben im Überblick mit unserer intuitiven und übersichtlichen Benutzeroberfläche."
+                defaultMessage="Moderne, intuitive Benutzeroberfläche für maximale Produktivität. Alle Features, die du brauchst - ohne Ballast."
               />
             </p>
           </div>
@@ -172,10 +198,10 @@ export default function LandingPage({
                   {/* Feature Highlights */}
                   <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
                     <div className="bg-accent/90 text-accent-foreground px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg backdrop-blur-sm">
-                      ✨ Intuitive Bedienung
+                      ⚡ Blitzschnell
                     </div>
                     <div className="bg-secondary/90 text-secondary-foreground px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg backdrop-blur-sm">
-                      🏷️ Smart Tags
+                      � Fokussiert
                     </div>
                   </div>
                 </div>
@@ -190,10 +216,10 @@ export default function LandingPage({
                     </div>
                     <div>
                       <div className="font-medium text-sm">
-                        Schnell hinzufügen
+                        Tasks in Sekunden
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        Neue Tasks in Sekunden
+                        Hinzufügen und bearbeiten
                       </div>
                     </div>
                   </div>
@@ -208,10 +234,10 @@ export default function LandingPage({
                     </div>
                     <div>
                       <div className="font-medium text-sm">
-                        Nie wieder vergessen
+                        Deadlines im Griff
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        Deadlines im Blick
+                        Termine und Prioritäten
                       </div>
                     </div>
                   </div>
@@ -223,72 +249,78 @@ export default function LandingPage({
       </section>
 
       {/* Features */}
-      <section className="container max-w-4xl mx-auto px-6 py-16 mb-30">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-medium tracking-tight mb-4">
+      <section className="container max-w-6xl mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             <FormattedMessage
               id="Landing.features.title"
-              defaultMessage="Was du kannst"
+              defaultMessage="Alles was du brauchst"
             />
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <FormattedMessage
+              id="Landing.features.subtitle"
+              defaultMessage="Entwickelt für moderne Arbeitsweisen. Einfach, schnell und effektiv."
+            />
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="text-center border-border/50">
-            <CardHeader className="p-6">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <Plus className="h-6 w-6 text-accent" />
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+            <CardHeader className="p-8">
+              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Plus className="h-8 w-8 text-accent" />
               </div>
-              <CardTitle className="text-lg mb-2">
+              <CardTitle className="text-xl mb-3">
                 <FormattedMessage
                   id="Landing.features.create.title"
-                  defaultMessage="Tasks erstellen"
+                  defaultMessage="Intuitiv erstellen"
                 />
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-base leading-relaxed">
                 <FormattedMessage
                   id="Landing.features.create.description"
-                  defaultMessage="Aufgaben hinzufügen und bearbeiten"
+                  defaultMessage="Tasks mit nur wenigen Klicks hinzufügen. Titel, Beschreibung und Tags - fertig."
                 />
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="text-center border-border/50">
-            <CardHeader className="p-6">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-6 w-6 text-accent" />
+          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+            <CardHeader className="p-8">
+              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="h-8 w-8 text-accent" />
               </div>
-              <CardTitle className="text-lg mb-2">
+              <CardTitle className="text-xl mb-3">
                 <FormattedMessage
                   id="Landing.features.deadline.title"
                   defaultMessage="Deadlines setzen"
                 />
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-base leading-relaxed">
                 <FormattedMessage
                   id="Landing.features.deadline.description"
-                  defaultMessage="Termine und Prioritäten verwalten"
+                  defaultMessage="Fälligkeiten und Prioritäten verwalten. Behalte wichtige Termine im Blick."
                 />
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="text-center border-border/50">
-            <CardHeader className="p-6">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <Tag className="h-6 w-6 text-accent" />
+          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+            <CardHeader className="p-8">
+              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Tag className="h-8 w-8 text-accent" />
               </div>
-              <CardTitle className="text-lg mb-2">
+              <CardTitle className="text-xl mb-3">
                 <FormattedMessage
                   id="Landing.features.organize.title"
-                  defaultMessage="Mit Tags organisieren"
+                  defaultMessage="Smart organisieren"
                 />
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-base leading-relaxed">
                 <FormattedMessage
                   id="Landing.features.organize.description"
-                  defaultMessage="Aufgaben kategorisieren und filtern"
+                  defaultMessage="Tags und Filter nutzen. Finde deine Tasks blitzschnell wieder."
                 />
               </CardDescription>
             </CardHeader>
@@ -296,35 +328,101 @@ export default function LandingPage({
         </div>
       </section>
 
+      {/* Statistics Section */}
+      <section className="container max-w-4xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            <FormattedMessage
+              id="Landing.stats.title"
+              defaultMessage="Warum Taskify?"
+            />
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <FormattedMessage
+              id="Landing.stats.subtitle"
+              defaultMessage="Fakten sprechen für sich. Eine App, die wirklich funktioniert."
+            />
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-accent mb-2">100%</div>
+            <div className="text-lg font-medium mb-2">Kostenlos</div>
+            <div className="text-sm text-muted-foreground">
+              Keine versteckten Kosten, keine Premium-Features
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="text-4xl font-bold text-accent mb-2">&lt;1s</div>
+            <div className="text-lg font-medium mb-2">Ladezeit</div>
+            <div className="text-sm text-muted-foreground">
+              Optimiert für Geschwindigkeit und Performance
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="text-4xl font-bold text-accent mb-2">Open</div>
+            <div className="text-lg font-medium mb-2">Source</div>
+            <div className="text-sm text-muted-foreground">
+              Transparent, sicher und community-driven
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-32 bg-accent">
-        <div className="container max-w-4xl mx-auto px-6 text-center">
+      <section className="relative py-24 bg-gradient-to-br from-accent via-accent to-accent/80 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="h-full w-full bg-white/5 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:20px_20px]"></div>
+        </div>
+
+        <div className="relative container max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <h3 className="text-4xl sm:text-5xl font-medium tracking-tight text-white">
+            <h3 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
               <FormattedMessage
                 id="Landing.cta.title"
-                defaultMessage="Bereit für mehr Produktivität?"
+                defaultMessage="Bereit zu starten?"
               />
             </h3>
+
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              <FormattedMessage
+                id="Landing.cta.subtitle"
+                defaultMessage="Registriere dich kostenlos und beginne sofort mit dem Organisieren deiner Aufgaben."
+              />
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
               <Link href={`/${locale}/register`}>
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="w-full sm:w-auto bg-white text-accent hover:bg-gray-50 font-medium text-lg px-8 py-4 h-auto transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="w-full sm:w-auto bg-white text-accent hover:bg-gray-50 font-medium text-lg px-10 py-4 h-auto transition-all duration-300 hover:scale-105 cursor-pointer shadow-xl"
                 >
                   <FormattedMessage
                     id="Landing.cta.button"
-                    defaultMessage="Jetzt kostenlos registrieren"
+                    defaultMessage="Kostenlos registrieren"
                   />
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
+
+            <div className="text-white/80 text-sm">
+              <FormattedMessage
+                id="Landing.cta.features"
+                defaultMessage="⚡ Sofort nutzbar • 📱 Responsive Design • 🔒 Deine Daten bleiben bei dir"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -13,12 +13,16 @@ interface NavigationProps {
 
 export function Navigation({ className }: NavigationProps) {
   const { locale } = useParams();
+  const currentLocale = Array.isArray(locale) ? locale[0] : locale || "de";
 
   return (
     <nav className={cn(className)}>
       <div className="container max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <Link className="flex items-center gap-x-2" href={`/${locale}`}>
+          <Link
+            className="flex items-center gap-x-2"
+            href={`/${currentLocale}`}
+          >
             <Image alt="Logo" src="/logo.svg" width={28} height={28} />
             <h1 className="text-xl font-medium tracking-tight">taskify</h1>
           </Link>

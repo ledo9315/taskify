@@ -154,9 +154,21 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
                             getPriorityColor(field.value)
                           )}
                         >
-                          {field.value === 0 && "Niedrig"}
-                          {field.value === 1 && "Mittel"}
-                          {field.value === 2 && "Hoch"}
+                          {field.value === 0 &&
+                            formatMessage({
+                              id: "TaskForm.priority.low",
+                              defaultMessage: "Niedrig",
+                            })}
+                          {field.value === 1 &&
+                            formatMessage({
+                              id: "TaskForm.priority.medium",
+                              defaultMessage: "Mittel",
+                            })}
+                          {field.value === 2 &&
+                            formatMessage({
+                              id: "TaskForm.priority.high",
+                              defaultMessage: "Hoch",
+                            })}
                         </div>
                       )}
                     </div>

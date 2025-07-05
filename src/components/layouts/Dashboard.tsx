@@ -4,7 +4,6 @@ import { cn } from "@/src/lib/utils";
 import { SidebarTrigger, useSidebar } from "@/src/components/ui/sidebar";
 import { useSidebarStore } from "@/src/store/sidebar-store";
 import { Container } from "@src/components/common/Container";
-import Footer from "@src/components/common/Footer";
 import TaskPanel from "@src/components/table/TaskPanel";
 import { useIntl } from "react-intl";
 import { ThemeToggle } from "../common/ThemeToggle";
@@ -93,6 +92,12 @@ export function Dashboard({ className }: MainPageContentProps) {
         return formatMessage({
           id: "MainPageContent.title.overdueTasks",
           defaultMessage: "Überfällige Aufgaben",
+        });
+
+      case "due":
+        return formatMessage({
+          id: "MainPageContent.title.dueTasks",
+          defaultMessage: "Fällige Aufgaben",
         });
       case "due-today":
         return formatMessage({
@@ -220,7 +225,6 @@ export function Dashboard({ className }: MainPageContentProps) {
                 sortBy={sortBy}
               />
             </main>
-            <Footer className="" />
           </div>
         </Container>
       </div>

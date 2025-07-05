@@ -4,6 +4,7 @@ type SidebarView =
   | "open"
   | "completed"
   | "overdue"
+  | "due"
   | "due-today"
   | "no-due-date"
   | "high-priority"

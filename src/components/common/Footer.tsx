@@ -1,17 +1,44 @@
-import { cn } from "@/src/lib/utils";
+"use client";
 
-interface FooterProps {
-  className?: string;
-}
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { FormattedMessage } from "react-intl";
 
-const Footer: React.FC<FooterProps> = ({ className }) => {
+const Footer = () => {
+  const params = useParams();
+  const locale = (params?.locale as string) || "de";
+
   return (
-    <footer className={cn(`mt-auto pt-20 pb-6 ${className}`)}>
+    <footer className="pb-6">
       <div className="border-t border-border/40 pt-6">
-        <p className="text-tiny text-muted-foreground text-center tracking-wider">
-          <span className="text-accent font-medium">team</span>
-          <span className="opacity-80"> 23</span>
-        </p>
+        <div className="flex flex-col items-center gap-4">
+          {/* Links */}
+          <div className="flex items-center gap-6 text-sm">
+            <Link
+              href={`/${locale}/legal`}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <FormattedMessage id="Footer.legal" defaultMessage="Impressum" />
+            </Link>
+            <div className="w-px h-4 bg-border"></div>
+            <Link
+              href={`/${locale}/privacy`}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <FormattedMessage
+                id="Footer.privacy"
+                defaultMessage="Datenschutz"
+              />
+            </Link>
+            <div className="w-px h-4 bg-border"></div>
+            <Link
+              href="mailto:leonid.domagalsky@gmail.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <FormattedMessage id="Footer.contact" defaultMessage="Kontakt" />
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

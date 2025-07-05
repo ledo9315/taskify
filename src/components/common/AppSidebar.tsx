@@ -60,6 +60,7 @@ export function AppSidebar() {
       | "open"
       | "completed"
       | "overdue"
+      | "due"
       | "due-today"
       | "no-due-date"
       | "high-priority"
@@ -113,6 +114,13 @@ export function AppSidebar() {
   today.setHours(0, 0, 0, 0);
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const dueCount = tasks.filter((task) => {
+    if (task.complete || !task.dueDate) return false;
+    const dueDate = new Date(task.dueDate);
+    dueDate.setHours(0, 0, 0, 0);
+    return dueDate.getTime() >= today.getTime();
+  }).length;
 
   const overdueCount = tasks.filter((task) => {
     if (task.complete || !task.dueDate) return false;
@@ -272,6 +280,23 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                    activeView === "due"
+                      ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
+                      : ""
+                  }`}
+                  isActive={activeView === "due"}
+                  onClick={() => onViewChange("due")}
+                >
+                  <FormattedMessage
+                    defaultMessage="Fällig"
+                    id="AppSidebar.due"
+                  />
+                  <span className="ml-2 text-accent">{dueCount}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${

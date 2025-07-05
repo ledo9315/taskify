@@ -11,12 +11,29 @@ export async function middleware(request: NextRequest) {
   const sessionCookie = getSessionCookie(request);
 
   if (!sessionCookie) {
-    return NextResponse.redirect(new URL("/de/landing", request.url));
+    // Extrahiere die aktuelle Locale aus der URL
+    const { pathname } = request.nextUrl;
+    const currentLocale = pathname.split("/")[1];
+    const supportedLocales = ["de", "en"];
+    const locale = supportedLocales.includes(currentLocale)
+      ? currentLocale
+      : "de";
+
+    return NextResponse.redirect(new URL(`/${locale}/landing`, request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/en", "/de"],
+  matcher: [
+    "/en",
+    "/de",
+    "/de/add",
+    "/en/add",
+    "/de/edit/:id",
+    "/en/edit/:id",
+    "/de/account",
+    "/en/account",
+  ],
 };

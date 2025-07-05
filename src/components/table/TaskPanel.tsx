@@ -9,6 +9,7 @@ type SidebarView =
   | "open"
   | "completed"
   | "overdue"
+  | "due"
   | "due-today"
   | "no-due-date"
   | "high-priority"
@@ -52,6 +53,15 @@ const TaskPanel = ({ view, selectedTag, sortBy }: TaskPanelProps) => {
           filtered = data.filter((task) => {
             if (task.complete || !task.dueDate) return false;
             return new Date(task.dueDate).getTime() < now.getTime();
+          });
+          break;
+
+        case "due":
+          filtered = data.filter((task) => {
+            if (task.complete || !task.dueDate) return false;
+            const dueDate = new Date(task.dueDate);
+            dueDate.setHours(0, 0, 0, 0);
+            return dueDate.getTime() >= today.getTime();
           });
           break;
 

@@ -13,9 +13,14 @@ export const useNavigation = (params?: Promise<{ locale: string }>) => {
     router.push(`/${locale}`);
   };
 
+  const backToLanding = () => {
+    router.push(`/${locale}/landing`);
+  };
+
   return {
     navigateTo,
     backToDashboard,
+    backToLanding,
     locale,
   };
 };
