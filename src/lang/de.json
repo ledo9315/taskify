@@ -127,6 +127,8 @@
   "Landing.dashboard.subtitle": "Moderne, intuitive Benutzeroberfläche für maximale Produktivität. Alle Features, die du brauchst - ohne Ballast.",
   "Landing.stats.title": "Warum Taskify?",
   "Landing.stats.subtitle": "Fakten sprechen für sich. Eine App, die wirklich funktioniert.",
+  "Landing.stats.modern.title": "Technologie",
+  "Landing.stats.modern.description": "Gebaut mit Next.js, React und TypeScript",
   "Landing.cta.title": "Bereit zu starten?",
   "Landing.cta.subtitle": "Registriere dich kostenlos und beginne sofort mit dem Organisieren deiner Aufgaben.",
   "Landing.cta.button": "Kostenlos registrieren",

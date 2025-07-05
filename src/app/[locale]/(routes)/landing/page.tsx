@@ -339,10 +339,18 @@ export default function LandingPage({
           </div>
 
           <div className="text-center">
-            <div className="text-4xl font-bold text-accent mb-2">&lt;1s</div>
-            <div className="text-lg font-medium mb-2">Ladezeit</div>
+            <div className="text-4xl font-bold text-accent mb-2">Modern</div>
+            <div className="text-lg font-medium mb-2">
+              <FormattedMessage
+                id="Landing.stats.modern.title"
+                defaultMessage="Technologie"
+              />
+            </div>
             <div className="text-sm text-muted-foreground">
-              Optimiert für Geschwindigkeit und Performance
+              <FormattedMessage
+                id="Landing.stats.modern.description"
+                defaultMessage="Gebaut mit Next.js, React und TypeScript"
+              />
             </div>
           </div>
 
