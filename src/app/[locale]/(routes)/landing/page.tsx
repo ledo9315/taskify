@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card";
-import { Plus, Calendar, Tag, ArrowRight, CheckCircle } from "lucide-react";
+import { Plus, Calendar, Tag, ArrowRight } from "lucide-react";
 import { LanguageToggle } from "@/src/components/common/LanguageToggle";
 import { ThemeToggle } from "@/src/components/common/ThemeToggle";
 import Footer from "@/src/components/common/Footer";
@@ -102,22 +102,6 @@ export default function LandingPage({
                 />
               </Button>
             </Link>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-6 pt-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>100% kostenlos</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>Sofort nutzbar</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>Open Source</span>
-            </div>
           </div>
         </div>
       </section>
@@ -266,7 +250,7 @@ export default function LandingPage({
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+          <Card className="relative group text-center border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
             <CardHeader className="p-8">
               <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Plus className="h-8 w-8 text-accent" />
@@ -286,7 +270,7 @@ export default function LandingPage({
             </CardHeader>
           </Card>
 
-          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+          <Card className="relative group text-center border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
             <CardHeader className="p-8">
               <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Calendar className="h-8 w-8 text-accent" />
@@ -306,7 +290,7 @@ export default function LandingPage({
             </CardHeader>
           </Card>
 
-          <Card className="relative group text-center border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
+          <Card className="relative group text-center border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
             <CardHeader className="p-8">
               <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Tag className="h-8 w-8 text-accent" />
