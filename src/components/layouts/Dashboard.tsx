@@ -167,8 +167,8 @@ export function Dashboard({ className }: MainPageContentProps) {
         <Container>
           <div className="flex flex-col min-h-[calc(100vh-4rem)] pt-16 pb-0 px-4 sm:px-6">
             <header className="mb-12">
-              <div className="flex items-center justify-between border-b border-primary/30 pb-4">
-                <div className="flex items-center gap-2">
+              <div className="flex items-start md:items-center justify-between border-b border-primary/30 pb-4">
+                <div className="flex flex-col gap-1 md:flex-row md:gap-2">
                   <h2 className="text-2xl font-medium tracking-tight">
                     {getViewTitle()}
                   </h2>

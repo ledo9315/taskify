@@ -16,7 +16,7 @@ export default function EditTaskPage({
 
   return (
     <>
-      <Navigation className="mb-20" />
+      <Navigation className="mb-8 md:mb-12" />
       <FormContainer size="xl">
         <TaskEditor taskQuery={taskQuery} />
       </FormContainer>

@@ -30,7 +30,8 @@ const TaskItem = ({ task }: TaskItemProps) => {
           />
           <TaskItemPriority priority={task.priority} />
         </div>
-        <div className="flex-shrink-0">
+        {/* Actions - nur auf md+ sichtbar */}
+        <div className="hidden md:flex flex-shrink-0">
           <TaskItemActions
             id={task.id}
             title={task.title}
@@ -53,6 +54,17 @@ const TaskItem = ({ task }: TaskItemProps) => {
           updatedAt={task.updatedAt || null}
           dueDate={task.dueDate || null}
         />
+
+        {/* Actions - nur auf Mobile sichtbar, am Ende */}
+        <div className="md:hidden col-span-2 flex justify-end pt-3 border-t border-border/30">
+          <div className="flex items-center gap-1">
+            <TaskItemActions
+              id={task.id}
+              title={task.title}
+              complete={task.complete}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

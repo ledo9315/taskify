@@ -5,7 +5,7 @@ import { FormContainer } from "@/src/components/common/FormContainer";
 export default function AddTaskPage() {
   return (
     <>
-      <Navigation className="mb-20" />
+      <Navigation className="mb-8 md:mb-12" />
       <FormContainer size="xl">
         <TaskInputForm />
       </FormContainer>

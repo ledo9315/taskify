@@ -64,7 +64,7 @@ export const TaskItemActions = ({
     <>
       <motion.div
         className={
-          "flex flex-row items-center gap-0 text-sm transition-opacity duration-300"
+          "flex flex-row items-center gap-1 text-sm transition-opacity duration-300"
         }
         initial={{ opacity: 0, x: 10 }}
         animate={{ opacity: 1, x: 0 }}
@@ -76,7 +76,7 @@ export const TaskItemActions = ({
         {/* Toggle Button */}
         <motion.button
           onClick={() => handleToggleTask(id, complete)}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer hover:bg-gray-100 rounded-md border border-transparent hover:border-green-600 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="p-3 md:px-2 md:py-0.5 transition-all duration-200 cursor-pointer touch-manipulation hover:bg-gray-100 rounded-lg md:rounded-md border border-transparent dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
@@ -85,9 +85,9 @@ export const TaskItemActions = ({
         >
           <motion.div variants={iconWiggleVariants}>
             {complete ? (
-              <Undo className="w-4 h-4 text-gray-500 group-hover:text-green-600" />
+              <Undo className="w-5 h-5 md:w-4 md:h-4 text-gray-500 group-hover:text-green-600" />
             ) : (
-              <Check className="w-4 h-4 text-gray-500 group-hover:text-green-600" />
+              <Check className="w-5 h-5 md:w-4 md:h-4 text-gray-500 group-hover:text-green-600" />
             )}
           </motion.div>
         </motion.button>
@@ -96,14 +96,14 @@ export const TaskItemActions = ({
         <motion.button
           onClick={() => router.push(`/${locale}/edit/${id}`)}
           disabled={isPendingToggleMutation}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md border border-transparent hover:border-blue-500 group"
+          className="p-3 md:px-2 md:py-0.5 transition-all duration-200 cursor-pointer touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 border-transparent dark:hover:bg-gray-700 rounded-lg md:rounded-md border group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
           whileTap="tap"
         >
           <motion.div variants={iconWiggleVariants}>
-            <Pencil className="w-4 h-4 text-gray-500 group-hover:text-blue-500" />
+            <Pencil className="w-5 h-5 md:w-4 md:h-4 text-gray-500 group-hover:text-blue-500" />
           </motion.div>
         </motion.button>
 
@@ -111,14 +111,14 @@ export const TaskItemActions = ({
         <motion.button
           onClick={() => handleDeleteTask(id, title)}
           disabled={isPendingDeleteMutation}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md border border-transparent hover:border-red-500 group"
+          className="p-3 md:px-2 md:py-0.5 transition-all duration-200 cursor-pointer touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 border-transparent dark:hover:bg-gray-700 rounded-lg md:rounded-md border group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
           whileTap="tap"
         >
           <motion.div variants={iconWiggleVariants}>
-            <Trash className="w-4 h-4 text-gray-500 group-hover:text-red-500" />
+            <Trash className="w-5 h-5 md:w-4 md:h-4 text-gray-500 group-hover:text-red-500" />
           </motion.div>
         </motion.button>
       </motion.div>

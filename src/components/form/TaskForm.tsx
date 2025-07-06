@@ -64,13 +64,13 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className={className}>
-      <Card className="border border-border bg-card shadow-sm">
-        <CardHeader className="border-b border-border pb-6">
-          <CardTitle className="text-2xl font-light tracking-tight flex items-center gap-3">
+    <div className={cn("mt-0 md:mt-8", className)}>
+      <Card className="shadow-sm border-0 md:border border-border bg-card">
+        <CardHeader className="border-b border-border pb-4 md:pb-6">
+          <CardTitle className="text-xl md:text-2xl font-light tracking-tight flex items-center gap-2 md:gap-3">
             {task ? (
               <>
-                <Save className="w-6 h-6 text-primary" />
+                <Save className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 <FormattedMessage
                   defaultMessage="Aufgabe bearbeiten"
                   id="TaskForm.editTask"
@@ -78,7 +78,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
               </>
             ) : (
               <>
-                <Plus className="w-6 h-6 text-primary" />
+                <Plus className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 <FormattedMessage
                   defaultMessage="Aufgabe hinzufügen"
                   id="TaskForm.addTask"
@@ -88,7 +88,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
           </CardTitle>
         </CardHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="flex flex-col gap-y-6 pt-6 px-6">
+          <CardContent className="flex flex-col gap-y-4 md:gap-y-6 pt-4 md:pt-6 px-4 md:px-6">
             {/* Priority Field */}
             <div className="space-y-2">
               <Controller
@@ -314,9 +314,9 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
 
             <ValidationErrors errors={errorMessages} />
           </CardContent>
-          <CardFooter className="pb-6 px-6 flex flex-col gap-4">
+          <CardFooter className="pb-4 md:pb-6 px-4 md:px-6 flex flex-col gap-3 md:gap-4">
             <Button
-              className="w-full py-3 text-base cursor-pointer"
+              className="w-full py-2 md:py-3 text-sm md:text-base cursor-pointer"
               type="submit"
               disabled={isSubmitting}
             >
@@ -335,7 +335,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             <Button
               type="button"
               variant="outline"
-              className="w-full py-3 text-base cursor-pointer"
+              className="w-full py-2 md:py-3 text-sm md:text-base cursor-pointer"
               onClick={handleCancel}
               disabled={isSubmitting}
             >

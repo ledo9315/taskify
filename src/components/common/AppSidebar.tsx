@@ -14,6 +14,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/src/components/ui/sidebar";
 import { Button } from "@/src/components/ui/button";
 import { useSidebarStore } from "@/src/store/sidebar-store";
@@ -42,6 +43,7 @@ import { Badge } from "../ui/badge";
 export function AppSidebar() {
   const { activeView, setActiveView, selectedTag, setSelectedTag } =
     useSidebarStore();
+  const { isMobile, setOpenMobile } = useSidebar();
   const router = useRouter();
   const { formatMessage } = useIntl();
   const { data: session } = authClient.useSession();
@@ -72,6 +74,11 @@ export function AppSidebar() {
       setSelectedTag(null);
     }
     setActiveView(view);
+
+    // Close mobile sidebar when a category is selected
+    if (isMobile) {
+      setOpenMobile(false);
+    }
   };
 
   const tasksQuery = useQuery({
@@ -201,11 +208,21 @@ export function AppSidebar() {
   const handleTagSelect = (tag: string) => {
     setSelectedTag(tag);
     setTagComboboxOpen(false);
+
+    // Close mobile sidebar when a tag is selected
+    if (isMobile) {
+      setOpenMobile(false);
+    }
   };
 
   const clearTagFilter = () => {
     setSelectedTag(null);
     setActiveView("open");
+
+    // Close mobile sidebar when clearing tag filter
+    if (isMobile) {
+      setOpenMobile(false);
+    }
   };
 
   const selectedTagStats = selectedTag
