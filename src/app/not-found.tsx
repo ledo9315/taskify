@@ -4,9 +4,15 @@ import { Button } from "@src/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { use } from "react";
 
-export default function NotFound() {
+export default function NotFound({
+  params,
+}: {
+  params?: Promise<{ locale?: string }>;
+}) {
   const router = useRouter();
+  const { locale } = params ? use(params) : { locale: "de" };
 
   return (
     <div className="flex-1 flex items-center justify-center min-h-screen bg-background">
@@ -29,7 +35,7 @@ export default function NotFound() {
         </div>
 
         <div className="flex flex-col gap-4 justify-center">
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Button
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 cursor-pointer"
               size="lg"
