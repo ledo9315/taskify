@@ -62,11 +62,11 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { title, description, tags, complete, id: taskId } = task.data;
 
   return (
-    <>
-      <Navigation className="mb-20" />
+    <div className="px-4">
+      <Navigation className="mb-6 md:mb-20" />
       <FormContainer size="4xl">
         <BackToDashboardButton className="mb-6" />
-        <Card className="border-border bg-card mb-6">
+        <Card className="mb-6">
           <CardHeader className="border-b border-border pb-6">
             <div className="flex items-center justify-between mb-4">
               <TaskItemPriority priority={task.data.priority} />
@@ -141,6 +141,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           </CardContent>
         </Card>
       </FormContainer>
-    </>
+    </div>
   );
 }
