@@ -14,30 +14,37 @@ import { LanguageToggle } from "@/src/components/common/LanguageToggle";
 import { ThemeToggle } from "@/src/components/common/ThemeToggle";
 import Footer from "@/src/components/common/Footer";
 import { FormattedMessage } from "react-intl";
-import { use } from "react";
+import { useParams } from "next/navigation";
 
-export default function LandingPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = use(params);
+export default function LandingPage() {
+  const params = useParams();
+  const locale = params.locale as string;
 
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+      <nav
+        className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm"
+        role="navigation"
+        aria-label="Hauptnavigation"
+      >
         <div className="container max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-x-3">
               <div className="flex items-center gap-x-2">
-                <Image alt="Logo" src="/logo.svg" width={28} height={28} />
+                <Image
+                  alt="Taskify Logo - Task Management App"
+                  src="/logo.svg"
+                  width={28}
+                  height={28}
+                  priority
+                />
                 <h1 className="text-xl font-medium tracking-tight">taskify</h1>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <LanguageToggle />
-              <div className="w-px h-6 bg-border"></div>
+              <div className="w-px h-6 bg-border" role="separator"></div>
               <ThemeToggle className="cursor-pointer" />
             </div>
           </div>
@@ -45,8 +52,11 @@ export default function LandingPage({
       </nav>
 
       {/* Hero Section */}
-      <section className="relative container max-w-4xl mx-auto px-6 py-20">
-        <div className="text-center space-y-8">
+      <section
+        className="relative container max-w-4xl mx-auto px-6 py-20"
+        role="main"
+      >
+        <header className="text-center space-y-8">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full text-sm font-medium text-accent mb-6">
             <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
@@ -82,12 +92,13 @@ export default function LandingPage({
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-8 py-3 h-auto cursor-pointer transition-all duration-300 hover:scale-105"
+                aria-label="Jetzt kostenlos bei Taskify registrieren"
               >
                 <FormattedMessage
                   id="Landing.hero.registerButton"
                   defaultMessage="Jetzt kostenlos starten"
                 />
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Button>
             </Link>
             <Link href={`/${locale}/login`}>
@@ -95,6 +106,7 @@ export default function LandingPage({
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto font-medium px-8 py-3 h-auto cursor-pointer transition-all duration-300 hover:scale-105"
+                aria-label="Bei Taskify anmelden"
               >
                 <FormattedMessage
                   id="Landing.hero.loginButton"
@@ -103,7 +115,7 @@ export default function LandingPage({
               </Button>
             </Link>
           </div>
-        </div>
+        </header>
       </section>
 
       {/* Dashboard Screenshot */}
@@ -165,7 +177,7 @@ export default function LandingPage({
                   <div className="relative aspect-[16/10] bg-background/50 rounded-xl overflow-hidden border border-border/30 shadow-inner">
                     <Image
                       src="/dashboard.png"
-                      alt="Taskify Dashboard Interface - Task Management Application"
+                      alt="Taskify Dashboard Interface - Modernes Task-Management mit Tags, Prioritäten und Deadlines. Zeigt übersichtliche Aufgabenliste, Filteroptionen und intuitive Benutzeroberfläche"
                       width={1200}
                       height={750}
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-102"
@@ -173,6 +185,8 @@ export default function LandingPage({
                       quality={95}
                       placeholder="blur"
                       blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                      loading="eager"
                     />
 
                     {/* Overlay Gradient */}

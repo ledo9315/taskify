@@ -32,7 +32,7 @@ const Footer = () => {
             </Link>
             <div className="w-px h-4 bg-border"></div>
             <Link
-              href="mailto:leonid.domagalsky@gmail.com"
+              href="mailto:support@taskify.software"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <FormattedMessage id="Footer.contact" defaultMessage="Kontakt" />

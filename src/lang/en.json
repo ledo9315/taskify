@@ -331,5 +331,11 @@
   "Privacy.general.complaint.text": "In the event of violations of the GDPR, data subjects have the right to lodge a complaint with a supervisory authority, particularly in the member state of their habitual residence, their workplace or the place of the alleged violation. The right to lodge a complaint exists without prejudice to other administrative or judicial remedies.",
   "Privacy.general.rights.title": "Information, correction and deletion",
   "Privacy.general.rights.text": "Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, its origin and recipients and the purpose of data processing and, if applicable, a right to correction or deletion of this data. You can contact us at any time regarding this and other questions about personal data.",
-  "Privacy.questionsText": "Do you have questions or suggestions?"
+  "Privacy.questionsText": "Do you have questions or suggestions?",
+  "NotFound.title": "Page not found",
+  "NotFound.description": "The requested page does not exist or has been moved. No problem - we'll help you navigate.",
+  "NotFound.backToDashboard": "To Dashboard",
+  "NotFound.backButton": "Back",
+  "NotFound.supportMessage": "If you believe this page was incorrectly not found, please contact us via",
+  "NotFound.supportEmail": "support@taskify.software"
 }

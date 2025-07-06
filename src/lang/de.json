@@ -319,5 +319,11 @@
   "Privacy.general.complaint.text": "Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.",
   "Privacy.general.rights.title": "Auskunft, Berichtigung und Löschung",
   "Privacy.general.rights.text": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.",
-  "Privacy.questionsText": "Hast du Fragen oder Anregungen?"
+  "Privacy.questionsText": "Hast du Fragen oder Anregungen?",
+  "NotFound.title": "Seite nicht gefunden",
+  "NotFound.description": "Die angeforderte Seite existiert nicht oder wurde verschoben. Kein Problem - wir helfen Ihnen beim Navigieren.",
+  "NotFound.backToDashboard": "Zum Dashboard",
+  "NotFound.backButton": "Zurück",
+  "NotFound.supportMessage": "Falls Sie glauben, dass diese Seite fälschlicherweise nicht gefunden wurde, kontaktieren Sie uns bitte über",
+  "NotFound.supportEmail": "support@taskify.software"
 }
