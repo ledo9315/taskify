@@ -124,9 +124,9 @@ export default function LoginPage() {
   return (
     <div className="bg-background flex flex-col">
       <Navigation />
-      <FormContainer className="h-[calc(100vh-64px)]" size="xl">
+      <FormContainer className="md:h-[calc(100vh-64px)]" size="xl">
         <div className="flex items-center justify-center h-full">
-          <Card className="w-full max-w-md mb-20">
+          <Card className="w-full max-w-lg md:max-w-md mt-20 md:mt-0 border-transparent md:border md:border-border bg-card shadow-sm">
             <CardHeader>
               <CardTitle>
                 <FormattedMessage

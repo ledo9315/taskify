@@ -105,9 +105,9 @@ export default function RegisterPage() {
   return (
     <div className="bg-background flex flex-col">
       <Navigation />
-      <FormContainer className="h-[calc(100vh-64px)]" size="xl">
-        <div className="flex items-center justify-center h-full">
-          <Card className="w-full max-w-md">
+      <FormContainer className="md:h-[calc(100vh-64px)]" size="xl">
+        <div className="flex mt-6 md:mt-0 md:items-center justify-center h-full">
+          <Card className="w-full max-w-lg md:max-w-md border-transparent md:border md:border-border bg-card shadow-sm">
             <CardHeader>
               <CardTitle>
                 <FormattedMessage

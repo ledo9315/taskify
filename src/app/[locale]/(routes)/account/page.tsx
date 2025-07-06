@@ -189,41 +189,46 @@ export default function AccountPage({
   }
 
   return (
-    <FormContainer size="lg">
+    <>
       <Navigation />
-      <div className="space-y-6 max-w-4xl mx-auto py-20">
-        <div className="flex justify-between items-center mb-6">
-          <BackToDashboardButton />
-          <Button
-            variant="outline"
-            onClick={handleSignOut}
-            disabled={isSigningOut}
-            className="flex items-center gap-2 cursor-pointer"
-          >
-            {isSigningOut ? (
-              <Loader2 size={16} className="animate-spin" />
-            ) : (
-              <LogOut size={16} />
-            )}
-            <FormattedMessage id="Account.signOut" defaultMessage="Abmelden" />
-          </Button>
+      <FormContainer size="2xl" className="px-4 md:px-0">
+        <div className="space-y-6 max-w-4xl mx-auto py-10 md:py-15">
+          <div className="flex justify-between items-center mb-6">
+            <BackToDashboardButton />
+            <Button
+              variant="outline"
+              onClick={handleSignOut}
+              disabled={isSigningOut}
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              {isSigningOut ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <LogOut size={16} />
+              )}
+              <FormattedMessage
+                id="Account.signOut"
+                defaultMessage="Abmelden"
+              />
+            </Button>
+          </div>
+
+          <h1 className="sr-only">
+            <FormattedMessage id="Account.title" defaultMessage="Mein Konto" />
+          </h1>
+
+          <PersonalInfoCard
+            user={session.user}
+            onSubmit={handlePersonalInfoSubmit}
+            isLoading={isLoading}
+          />
+
+          <PasswordChangeCard
+            onSubmit={handlePasswordChangeSubmit}
+            isLoading={isPasswordLoading}
+          />
         </div>
-
-        <h1 className="sr-only">
-          <FormattedMessage id="Account.title" defaultMessage="Mein Konto" />
-        </h1>
-
-        <PersonalInfoCard
-          user={session.user}
-          onSubmit={handlePersonalInfoSubmit}
-          isLoading={isLoading}
-        />
-
-        <PasswordChangeCard
-          onSubmit={handlePasswordChangeSubmit}
-          isLoading={isPasswordLoading}
-        />
-      </div>
-    </FormContainer>
+      </FormContainer>
+    </>
   );
 }

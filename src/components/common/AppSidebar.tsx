@@ -235,14 +235,16 @@ export function AppSidebar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-2 px-2">
             <Image alt="Logo" src="/logo.svg" width={28} height={28} />
-            <h1 className="text-xl font-medium tracking-tight">taskify</h1>
+            <h1 className="text-2xl md:text-xl font-medium tracking-tight">
+              taskify
+            </h1>
           </div>
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>
+          <SidebarGroupLabel className="text-base md:text-sm">
             {formatMessage({
               id: "AppSidebar.tasks",
               defaultMessage: "Aufgaben",
@@ -252,7 +254,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "open"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -264,12 +266,14 @@ export function AppSidebar() {
                     defaultMessage="Offen"
                     id="AppSidebar.open"
                   />
-                  <span className="ml-2 text-accent">{openCount}</span>
+                  <span className="ml-2 text-accent text-base md:text-sm">
+                    {openCount}
+                  </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "completed"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -281,7 +285,9 @@ export function AppSidebar() {
                     defaultMessage="Abgeschlossen"
                     id="AppSidebar.completed"
                   />
-                  <span className="ml-2 text-accent">{completedCount}</span>
+                  <span className="ml-2 text-accent text-base md:text-sm">
+                    {completedCount}
+                  </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -289,7 +295,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>
+          <SidebarGroupLabel className="text-base md:text-sm">
             {formatMessage({
               id: "AppSidebar.byDueDate",
               defaultMessage: "Nach Fälligkeit",
@@ -299,7 +305,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "due"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -311,12 +317,14 @@ export function AppSidebar() {
                     defaultMessage="Fällig"
                     id="AppSidebar.due"
                   />
-                  <span className="ml-2 text-accent">{dueCount}</span>
+                  <span className="ml-2 text-accent text-base md:text-sm">
+                    {dueCount}
+                  </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "overdue"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -329,7 +337,7 @@ export function AppSidebar() {
                     id="AppSidebar.overdue"
                   />
                   <span
-                    className={`ml-2 ${overdueCount > 0 ? "text-red-500" : "text-accent"}`}
+                    className={`ml-2 text-base md:text-sm ${overdueCount > 0 ? "text-red-500" : "text-accent"}`}
                   >
                     {overdueCount}
                   </span>
@@ -337,7 +345,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "due-today"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -350,7 +358,7 @@ export function AppSidebar() {
                     id="AppSidebar.dueToday"
                   />
                   <span
-                    className={`ml-2 ${dueTodayCount > 0 ? "text-orange-400" : "text-accent"}`}
+                    className={`ml-2 text-base md:text-sm ${dueTodayCount > 0 ? "text-orange-400" : "text-accent"}`}
                   >
                     {dueTodayCount}
                   </span>
@@ -358,7 +366,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "no-due-date"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -370,7 +378,9 @@ export function AppSidebar() {
                     defaultMessage="Ohne Fälligkeit"
                     id="AppSidebar.noDueDate"
                   />
-                  <span className="ml-2 text-accent">{noDueDateCount}</span>
+                  <span className="ml-2 text-accent text-base md:text-sm">
+                    {noDueDateCount}
+                  </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -378,7 +388,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>
+          <SidebarGroupLabel className="text-base md:text-sm">
             {formatMessage({
               id: "AppSidebar.byPriority",
               defaultMessage: "Nach Priorität",
@@ -388,7 +398,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "high-priority"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -401,7 +411,7 @@ export function AppSidebar() {
                     id="AppSidebar.highPriority"
                   />
                   <span
-                    className={`ml-2 ${highPriorityCount > 0 ? "text-orange-400" : "text-accent"}`}
+                    className={`ml-2 text-base md:text-sm ${highPriorityCount > 0 ? "text-orange-400" : "text-accent"}`}
                   >
                     {highPriorityCount}
                   </span>
@@ -409,7 +419,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "medium-priority"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -421,14 +431,14 @@ export function AppSidebar() {
                     defaultMessage="Mittlere Priorität"
                     id="AppSidebar.mediumPriority"
                   />
-                  <span className={`ml-2 text-accent`}>
+                  <span className={`ml-2 text-accent text-base md:text-sm`}>
                     {mediumPriorityCount}
                   </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "low-priority"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -440,7 +450,9 @@ export function AppSidebar() {
                     defaultMessage="Niedrige Priorität"
                     id="AppSidebar.lowPriority"
                   />
-                  <span className="ml-2 text-accent">{lowPriorityCount}</span>
+                  <span className="ml-2 text-accent text-base md:text-sm">
+                    {lowPriorityCount}
+                  </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -448,7 +460,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>
+          <SidebarGroupLabel className="text-base md:text-sm">
             {formatMessage({
               id: "AppSidebar.byTags",
               defaultMessage: "Nach Tags",
@@ -464,23 +476,26 @@ export function AppSidebar() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="w-full justify-between h-auto p-2 hover:bg-secondary/80 text-left cursor-pointer"
+                      className="w-full justify-between h-auto p-2 hover:bg-secondary/80 text-left cursor-pointer text-base md:text-sm"
                     >
                       <div className="flex items-center gap-2 min-w-0 flex-1">
                         <Hash className="h-4 w-4 flex-shrink-0" />
                         {selectedTag ? (
                           <div className="flex items-center gap-1 min-w-0 flex-1">
-                            <Badge variant="secondary" className="text-xs">
+                            <Badge
+                              variant="secondary"
+                              className="text-sm md:text-xs"
+                            >
                               {selectedTag}
                             </Badge>
                             {selectedTagStats && (
-                              <span className="text-xs text-muted-foreground">
+                              <span className="text-sm md:text-xs text-muted-foreground">
                                 ({selectedTagStats.open})
                               </span>
                             )}
                           </div>
                         ) : (
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-base md:text-sm text-muted-foreground">
                             {formatMessage({
                               id: "AppSidebar.selectTag",
                               defaultMessage: "Tag auswählen...",
@@ -506,14 +521,14 @@ export function AppSidebar() {
                   <PopoverContent className="w-64 p-0" align="start">
                     <Command>
                       <CommandInput
-                        className="focus-visible:ring-0"
+                        className="focus-visible:ring-0 text-base md:text-sm"
                         placeholder={formatMessage({
                           id: "AppSidebar.searchTags",
                           defaultMessage: "Tags durchsuchen...",
                         })}
                       />
                       <CommandList>
-                        <CommandEmpty>
+                        <CommandEmpty className="text-base md:text-sm">
                           {formatMessage({
                             id: "AppSidebar.noTagsFound",
                             defaultMessage: "Keine Tags gefunden.",
@@ -524,12 +539,12 @@ export function AppSidebar() {
                             <CommandItem
                               key={tag}
                               onSelect={() => handleTagSelect(tag)}
-                              className="cursor-pointer"
+                              className="cursor-pointer text-base md:text-sm"
                             >
                               <Hash className="mr-2 h-4 w-4" />
                               <span className="flex-1">{tag}</span>
                               <div className="flex items-center gap-1">
-                                <span className="text-xs text-muted-foreground">
+                                <span className="text-sm md:text-xs text-muted-foreground">
                                   {open > 0 && (
                                     <span className="text-accent">{open}</span>
                                   )}
@@ -570,10 +585,10 @@ export function AppSidebar() {
                   <AvatarFallback>{displayInitials}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col items-start min-w-0 flex-1">
-                  <div className="font-medium text-sm truncate w-full">
+                  <div className="font-medium text-base md:text-sm truncate w-full">
                     {userName}
                   </div>
-                  <div className="text-xs text-muted-foreground truncate w-full">
+                  <div className="text-sm md:text-xs text-muted-foreground truncate w-full">
                     {userEmail}
                   </div>
                 </div>
@@ -584,20 +599,20 @@ export function AppSidebar() {
           <PopoverContent
             className="w-64 p-0"
             align="end"
-            side="right"
+            side={isMobile ? "bottom" : "right"}
             sideOffset={-8}
           >
             <Command>
               <CommandList>
                 <CommandGroup>
-                  <div className="flex items-center gap-2 px-2 py-2 text-sm">
+                  <div className="flex items-center gap-2 px-2 py-2 text-base md:text-sm">
                     <Avatar className="w-8 h-8 rounded-lg flex-shrink-0">
                       <AvatarImage src={userImage || undefined} />
                       <AvatarFallback>{displayInitials}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col min-w-0 flex-1">
                       <div className="font-medium truncate">{userName}</div>
-                      <div className="text-xs text-muted-foreground truncate">
+                      <div className="text-sm md:text-xs text-muted-foreground truncate">
                         {userEmail}
                       </div>
                     </div>
@@ -606,7 +621,7 @@ export function AppSidebar() {
                 <CommandSeparator />
                 <CommandGroup>
                   <CommandItem
-                    className="cursor-pointer"
+                    className="cursor-pointer text-base md:text-sm"
                     onSelect={() => handleMenuAction("account")}
                   >
                     <User className="mr-2 h-4 w-4" />
@@ -616,7 +631,7 @@ export function AppSidebar() {
                     />
                   </CommandItem>
                   <CommandItem
-                    className="cursor-pointer"
+                    className="cursor-pointer text-base md:text-sm"
                     onSelect={() => handleMenuAction("logout")}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
