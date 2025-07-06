@@ -103,7 +103,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
@@ -275,7 +275,7 @@ export default function LandingPage() {
       {/* Dashboard Screenshot */}
       <motion.section
         ref={dashboardRef}
-        className="relative container max-w-6xl mx-auto px-6 py-24"
+        className="relative container max-w-6xl mx-auto px-6 py-12 sm:py-24"
         initial="hidden"
         animate={dashboardInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -437,9 +437,9 @@ export default function LandingPage() {
                 </div>
               </motion.div>
 
-              {/* Floating Cards */}
+              {/* Floating Cards - Hidden on mobile */}
               <motion.div
-                className="absolute -left-8 top-1/2 -translate-y-1/2"
+                className="absolute -left-8 top-1/2 -translate-y-1/2 hidden lg:block"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 }}
@@ -479,7 +479,7 @@ export default function LandingPage() {
               </motion.div>
 
               <motion.div
-                className="absolute -right-8 bottom-1/4"
+                className="absolute -right-8 bottom-1/4 hidden lg:block"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.2 }}
