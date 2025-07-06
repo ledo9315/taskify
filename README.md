@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Taskify
 
-## Getting Started
+![Taskify Vorschau](public/preview.jpg)
 
-First, run the development server:
+Taskify ist ein modernes, kostenloses Task-Management-Tool, das dir hilft, deine Aufgaben effizient zu organisieren, zu priorisieren und zu erledigen. Die App ist für Desktop und Mobile optimiert und bietet ein elegantes, schnelles Nutzererlebnis.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Aufgabenverwaltung**: Erstelle, bearbeite und lösche Aufgaben mit wenigen Klicks.
+- **Tags & Prioritäten**: Organisiere Aufgaben mit Tags und setze Prioritäten (hoch, mittel, niedrig).
+- **Fälligkeitsdaten**: Behalte Deadlines im Blick und filtere Aufgaben nach Fälligkeit.
+- **Dark Mode**: Automatische Anpassung an das System-Theme.
+- **Mehrsprachigkeit**: Deutsch und Englisch werden unterstützt.
+- **Sichere Authentifizierung**: Moderne Authentifizierung und Passwort-Reset.
+- **Performance**: Schnelle Ladezeiten durch statische Assets und optimiertes Caching.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**
+- **TypeScript**
+- **PostgreSQL**
+- **Drizzle ORM**
+- **React Query**
+- **Better Auth**
+- **Zustand**
+- **Tailwind CSS**
+- **Vercel**
 
-## Learn More
+## Lokale Entwicklung
 
-To learn more about Next.js, take a look at the following resources:
+1. **Repository klonen**
+   ```bash
+   git clone https://github.com/dein-benutzername/taskify.git
+   cd taskify
+   ```
+2. **Abhängigkeiten installieren**
+   ```bash
+   npm install
+   # oder
+   yarn install
+   ```
+3. **Umgebungsvariablen anlegen**
+   Erstelle eine `.env.local` Datei und trage die nötigen Variablen ein.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Datenbank migrieren (optional)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run db:migrate
+   ```
 
-## Deploy on Vercel
+5. **Entwicklungsserver starten**
+   ```bash
+   npm run dev
+   ```
+   Die App läuft dann auf [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Taskify ist für Vercel optimiert. Ein Klick auf den Button deployt die App direkt:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=taskify)
+
+---
+
+**Autor:** Leonid Domahalskyy
+
+Feedback und Pull Requests sind willkommen!
