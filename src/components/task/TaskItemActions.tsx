@@ -76,7 +76,7 @@ export const TaskItemActions = ({
         {/* Toggle Button */}
         <motion.button
           onClick={() => handleToggleTask(id, complete)}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer hover:bg-gray-100 rounded-md border border-transparent hover:border-green-600 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
@@ -96,7 +96,7 @@ export const TaskItemActions = ({
         <motion.button
           onClick={() => router.push(`/${locale}/edit/${id}`)}
           disabled={isPendingToggleMutation}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200 group"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md border border-transparent hover:border-blue-500 group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
@@ -111,7 +111,7 @@ export const TaskItemActions = ({
         <motion.button
           onClick={() => handleDeleteTask(id, title)}
           disabled={isPendingDeleteMutation}
-          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 rounded-md border border-transparent hover:border-gray-200 group"
+          className="px-2 py-0.5 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md border border-transparent hover:border-red-500 group"
           variants={buttonVariants}
           initial="rest"
           whileHover="hover"
