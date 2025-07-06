@@ -109,7 +109,7 @@
   "Landing.features.card3.title": "Clever organisieren",
   "Landing.features.card3.description": "Mit Tags und Kategorien den Überblick behalten. Smarte Filter für bessere Organisation.",
   "Landing.features.create.title": "Intuitiv erstellen",
-  "Landing.features.create.description": "Tasks mit nur wenigen Klicks hinzufügen. Titel, Beschreibung und Tags - fertig.",
+  "Landing.features.create.description": "Tasks mit nur wenigen Klicks hinzufügen.",
   "Landing.features.deadline.title": "Deadlines setzen",
   "Landing.features.deadline.description": "Fälligkeiten und Prioritäten verwalten. Behalte wichtige Termine im Blick.",
   "Landing.features.organize.title": "Smart organisieren",
@@ -325,5 +325,15 @@
   "NotFound.backToDashboard": "Zum Dashboard",
   "NotFound.backButton": "Zurück",
   "NotFound.supportMessage": "Falls Sie glauben, dass diese Seite fälschlicherweise nicht gefunden wurde, kontaktieren Sie uns bitte über",
-  "NotFound.supportEmail": "support@taskify.software"
+  "NotFound.supportEmail": "support@taskify.software",
+  "Landing.dashboard.highlight.fast": "⚡ Blitzschnell",
+  "Landing.dashboard.highlight.focused": "🎯 Fokussiert",
+  "Landing.dashboard.floatingCard.tasks.title": "Tasks in Sekunden",
+  "Landing.dashboard.floatingCard.tasks.subtitle": "Hinzufügen und bearbeiten",
+  "Landing.dashboard.floatingCard.deadlines.title": "Deadlines im Griff",
+  "Landing.dashboard.floatingCard.deadlines.subtitle": "Termine und Prioritäten",
+  "Landing.stats.free.title": "Kostenlos",
+  "Landing.stats.free.description": "Keine versteckten Kosten, keine Premium-Features",
+  "Landing.stats.openSource.title": "Source",
+  "Landing.stats.openSource.description": "Transparent, sicher und community-driven"
 }

@@ -1,75 +1,147 @@
 "use client";
 
-import { Button } from "@src/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Button } from "@/src/components/ui/button";
+import { ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
-import { use } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
-export default function NotFound({
-  params,
-}: {
-  params?: Promise<{ locale?: string }>;
-}) {
+// Texte für beide Sprachen (da wir außerhalb der Provider sind)
+const texts = {
+  de: {
+    title: "Seite nicht gefunden",
+    description:
+      "Die gesuchte Seite scheint nicht zu existieren. Möglicherweise wurde sie verschoben oder gelöscht.",
+    back: "Zurück",
+    dashboard: "Zum Dashboard",
+    searchTitle: "Suchen Sie etwas?",
+    searchDesc: "Nutzen Sie die Navigation oder gehen Sie zurück zum Dashboard",
+    errorTitle: "Temporärer Fehler?",
+    errorDesc: "Versuchen Sie es in ein paar Minuten erneut",
+    homeTitle: "Zurück zur Startseite",
+    homeDesc: "Kehren Sie zum Dashboard zurück und verwalten Sie Ihre Aufgaben",
+    support: "Haben Sie Probleme? Kontaktieren Sie uns über",
+  },
+  en: {
+    title: "Page not found",
+    description:
+      "The page you're looking for doesn't seem to exist. It may have been moved or deleted.",
+    back: "Back",
+    dashboard: "To Dashboard",
+    searchTitle: "Looking for something?",
+    searchDesc: "Use the navigation or go back to the dashboard",
+    errorTitle: "Temporary error?",
+    errorDesc: "Try again in a few minutes",
+    homeTitle: "Back to homepage",
+    homeDesc: "Return to the dashboard and manage your tasks",
+    support: "Having problems? Contact us at",
+  },
+};
+
+export default function NotFound() {
   const router = useRouter();
-  const { locale } = params ? use(params) : { locale: "de" };
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  // Locale aus der URL extrahieren
+  const locale = pathname?.startsWith("/en") ? "en" : "de";
+  const t = texts[locale];
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <div className="flex-1 flex items-center justify-center min-h-screen bg-background">
-      <div className="text-center animate-fade-in max-w-md mx-auto px-4">
-        <div className="mb-8">
-          <h1
-            className="text-8xl font-light text-accent mb-4"
-            role="heading"
-            aria-level={1}
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 flex items-center justify-center p-4">
+      <div className="max-w-2xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-8"
+        >
+          {/* 404 Number */}
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="relative"
           >
-            404
-          </h1>
-          <h2 className="text-xl text-muted-foreground mb-4">
-            Seite nicht gefunden
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Die angeforderte Seite existiert nicht oder wurde verschoben. Kein
-            Problem - wir helfen Ihnen beim Navigieren.
-          </p>
-        </div>
+            <h1 className="text-8xl md:text-9xl font-bold text-secondary">
+              404
+            </h1>
+          </motion.div>
 
-        <div className="flex flex-col gap-4 justify-center">
-          <Link href={`/${locale}`}>
+          {/* Error Message */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="space-y-4"
+          >
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+              {t.title}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-md mx-auto">
+              {t.description}
+            </p>
+          </motion.div>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+          >
             <Button
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 cursor-pointer"
+              onClick={() => router.back()}
+              variant="outline"
               size="lg"
-              aria-label="Zurück zur Taskify Startseite"
+              className="flex items-center gap-2 cursor-pointer"
             >
-              <Home className="mr-2 h-4 w-4" aria-hidden="true" />
-              Zum Dashboard
+              <ArrowLeft className="h-4 w-4" />
+              {t.back}
             </Button>
-          </Link>
 
-          <Button
-            variant="ghost"
-            className="gap-2 hover:bg-accent/10 transition-colors cursor-pointer"
-            onClick={() => router.back()}
-            aria-label="Zur vorherigen Seite zurückkehren"
+            <Link href={`/${locale}`}>
+              <Button
+                size="lg"
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <Home className="h-4 w-4" />
+                {t.dashboard}
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Footer */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            className="pt-12 text-sm text-muted-foreground"
           >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            Zurück
-          </Button>
-        </div>
-
-        <div className="mt-8 text-xs text-muted-foreground">
-          <p>
-            Falls Sie glauben, dass diese Seite fälschlicherweise nicht gefunden
-            wurde, kontaktieren Sie uns bitte über{" "}
-            <a
-              href="mailto:support@taskify.software"
-              className="text-accent hover:underline"
-              aria-label="Support per E-Mail kontaktieren"
-            >
-              support@taskify.software
-            </a>
-          </p>
-        </div>
+            <p>
+              {t.support}{" "}
+              <a
+                href="mailto:support@taskify.software"
+                className="text-primary hover:underline"
+              >
+                support@taskify.software
+              </a>
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

@@ -337,5 +337,15 @@
   "NotFound.backToDashboard": "To Dashboard",
   "NotFound.backButton": "Back",
   "NotFound.supportMessage": "If you believe this page was incorrectly not found, please contact us via",
-  "NotFound.supportEmail": "support@taskify.software"
+  "NotFound.supportEmail": "support@taskify.software",
+  "Landing.dashboard.highlight.fast": "⚡ Lightning fast",
+  "Landing.dashboard.highlight.focused": "🎯 Focused",
+  "Landing.dashboard.floatingCard.tasks.title": "Tasks in seconds",
+  "Landing.dashboard.floatingCard.tasks.subtitle": "Add and edit",
+  "Landing.dashboard.floatingCard.deadlines.title": "Deadlines under control",
+  "Landing.dashboard.floatingCard.deadlines.subtitle": "Dates and priorities",
+  "Landing.stats.free.title": "Free",
+  "Landing.stats.free.description": "No hidden costs, no premium features",
+  "Landing.stats.openSource.title": "Source",
+  "Landing.stats.openSource.description": "Transparent, secure and community-driven"
 }
