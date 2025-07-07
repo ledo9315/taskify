@@ -18,7 +18,7 @@ export function FloatingActionButton({ className }: FloatingActionButtonProps) {
       <Button
         size="lg"
         className={cn(
-          "fixed bottom-6 right-6 z-50 h-20 w-20 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95",
+          "fixed bottom-6 right-6 z-50 h-20 w-20 md:h-16 md:w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95",
           "bg-primary hover:bg-primary/90 text-primary-foreground",
           "border-2 border-primary-foreground/10",
           "group cursor-pointer",
