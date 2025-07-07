@@ -69,8 +69,14 @@ const TaskPanel = ({ view, selectedTag, sortBy }: TaskPanelProps) => {
           filtered = data.filter((task) => {
             if (task.complete || !task.dueDate) return false;
             const dueDate = new Date(task.dueDate);
-            dueDate.setHours(0, 0, 0, 0);
-            return dueDate.getTime() === today.getTime();
+            const now = new Date();
+            // Prüfe, ob das Fälligkeitsdatum heute ist
+            return (
+              dueDate.getFullYear() === now.getFullYear() &&
+              dueDate.getMonth() === now.getMonth() &&
+              dueDate.getDate() === now.getDate() &&
+              dueDate.getTime() > now.getTime()
+            );
           });
           break;
 

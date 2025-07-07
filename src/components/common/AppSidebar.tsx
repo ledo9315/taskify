@@ -137,8 +137,14 @@ export function AppSidebar() {
   const dueTodayCount = tasks.filter((task) => {
     if (task.complete || !task.dueDate) return false;
     const dueDate = new Date(task.dueDate);
-    dueDate.setHours(0, 0, 0, 0);
-    return dueDate.getTime() === today.getTime();
+    const now = new Date();
+    // Prüfe, ob das Fälligkeitsdatum heute ist
+    return (
+      dueDate.getFullYear() === now.getFullYear() &&
+      dueDate.getMonth() === now.getMonth() &&
+      dueDate.getDate() === now.getDate() &&
+      dueDate.getTime() > now.getTime()
+    );
   }).length;
 
   const noDueDateCount = tasks.filter(
@@ -325,27 +331,6 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
-                    activeView === "overdue"
-                      ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
-                      : ""
-                  }`}
-                  isActive={activeView === "overdue"}
-                  onClick={() => onViewChange("overdue")}
-                >
-                  <FormattedMessage
-                    defaultMessage="Überfällig"
-                    id="AppSidebar.overdue"
-                  />
-                  <span
-                    className={`ml-2 text-base md:text-sm ${overdueCount > 0 ? "text-red-500" : "text-accent"}`}
-                  >
-                    {overdueCount}
-                  </span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
                     activeView === "due-today"
                       ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
                       : ""
@@ -361,6 +346,27 @@ export function AppSidebar() {
                     className={`ml-2 text-base md:text-sm ${dueTodayCount > 0 ? "text-orange-400" : "text-accent"}`}
                   >
                     {dueTodayCount}
+                  </span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  className={`flex justify-between cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background text-base md:text-sm ${
+                    activeView === "overdue"
+                      ? "!bg-secondary !text-secondary-foreground hover:!bg-secondary/80 data-[active=true]:!bg-secondary data-[active=true]:!text-secondary-foreground"
+                      : ""
+                  }`}
+                  isActive={activeView === "overdue"}
+                  onClick={() => onViewChange("overdue")}
+                >
+                  <FormattedMessage
+                    defaultMessage="Überfällig"
+                    id="AppSidebar.overdue"
+                  />
+                  <span
+                    className={`ml-2 text-base md:text-sm ${overdueCount > 0 ? "text-red-500" : "text-accent"}`}
+                  >
+                    {overdueCount}
                   </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
