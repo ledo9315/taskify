@@ -65,9 +65,9 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
 
   return (
     <div className={cn("mt-0 md:mt-8", className)}>
-      <Card className="shadow-sm border-0 md:border border-border bg-card">
-        <CardHeader className="border-b border-border pb-4 md:pb-6">
-          <CardTitle className="text-xl md:text-2xl font-light tracking-tight flex items-center gap-2 md:gap-3">
+      <Card className="border-0 shadow-none md:shadow-sm md:border border-border bg-card">
+        <CardHeader className="border-transparent md:border-b md:border-border md:pb-6">
+          <CardTitle className="text-2xl font-light tracking-tight flex items-center gap-2 md:gap-3">
             {task ? (
               <>
                 <Save className="w-5 h-5 md:w-6 md:h-6 text-primary" />
@@ -250,7 +250,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             />
 
             {/* Due Date Field */}
-            <div className="space-y-2">
+            <div className="space-y-2 py-6 md:py-2">
               <Controller
                 name="dueDate"
                 control={control}
@@ -267,7 +267,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
                   },
                 }}
                 render={({ field }) => (
-                  <div className="space-y-2">
+                  <>
                     <DateTimePicker
                       value={field.value}
                       onChange={field.onChange}
@@ -277,13 +277,13 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
                         {errors.dueDate.message}
                       </p>
                     )}
-                  </div>
+                  </>
                 )}
               />
             </div>
 
             {/* Tags Field */}
-            <div className="flex flex-col">
+            <div className="flex flex-col mb-8 md:mb-0">
               <Controller
                 name="tags"
                 control={control}
@@ -316,7 +316,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
           </CardContent>
           <CardFooter className="pb-4 md:pb-6 px-4 md:px-6 flex flex-col gap-3 md:gap-4">
             <Button
-              className="w-full py-2 md:py-3 text-sm md:text-base cursor-pointer"
+              className="w-full py-6 md:py-3 text-sm md:text-base cursor-pointer"
               type="submit"
               disabled={isSubmitting}
             >
@@ -335,7 +335,7 @@ export const TaskInputForm = ({ className, task }: TaskInputFormProps) => {
             <Button
               type="button"
               variant="outline"
-              className="w-full py-2 md:py-3 text-sm md:text-base cursor-pointer"
+              className="w-full py-6 md:py-3 text-sm md:text-base cursor-pointer"
               onClick={handleCancel}
               disabled={isSubmitting}
             >
