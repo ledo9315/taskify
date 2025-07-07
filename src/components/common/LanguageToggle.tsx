@@ -74,7 +74,7 @@ export function LanguageToggle() {
           const locale = localeKey as Locale;
           return (
             <SelectItem
-              className="cursor-pointer hover:bg-accent/30"
+              className="cursor-pointer hover:bg-accent/30 py-4 px-10 md:py-2 md:px-4"
               key={locale}
               value={locale}
             >

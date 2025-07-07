@@ -199,7 +199,7 @@ export default function AccountPage({
               variant="outline"
               onClick={handleSignOut}
               disabled={isSigningOut}
-              className="flex items-center gap-2 cursor-pointer"
+              className="flex items-center gap-2 cursor-pointer py-6 md:py-3"
             >
               {isSigningOut ? (
                 <Loader2 size={16} className="animate-spin" />

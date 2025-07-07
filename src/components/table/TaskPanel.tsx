@@ -165,6 +165,7 @@ const TaskPanel = ({ view, selectedTag, sortBy }: TaskPanelProps) => {
 
   return (
     <TaskSection
+      className="mb-30"
       tasks={tasksQuery.data ?? []}
       completed={view === "completed"}
       isPending={tasksQuery.isPending}

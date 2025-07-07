@@ -169,7 +169,11 @@ export function PasswordChangeCard({
             )}
           </div>
 
-          <Button className="cursor-pointer" type="submit" disabled={isLoading}>
+          <Button
+            className="cursor-pointer py-6 w-full md:w-fit md:py-3"
+            type="submit"
+            disabled={isLoading}
+          >
             {isLoading ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (

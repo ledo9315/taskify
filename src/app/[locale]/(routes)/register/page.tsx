@@ -103,11 +103,11 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="bg-background flex flex-col">
+    <div className="bg-background">
       <Navigation />
       <FormContainer className="md:h-[calc(100vh-64px)]" size="xl">
-        <div className="flex mt-6 md:mt-0 md:items-center justify-center h-full">
-          <Card className="w-full max-w-lg md:max-w-md border-transparent md:border md:border-border bg-card shadow-sm">
+        <div className="flex justify-center mt-10 md:mt-20">
+          <Card className="w-full max-w-lg md:max-w-md border-transparent md:border md:border-border bg-card shadow-none md:shadow-sm">
             <CardHeader>
               <CardTitle>
                 <FormattedMessage
@@ -401,7 +401,7 @@ export default function RegisterPage() {
                 <CardFooter className="flex-col gap-2 px-0 pt-6">
                   <Button
                     type="submit"
-                    className="w-full cursor-pointer"
+                    className="w-full cursor-pointer h-12 md:h-10"
                     disabled={loading}
                   >
                     {loading ? (
@@ -432,7 +432,7 @@ export default function RegisterPage() {
                       );
                     }}
                     variant="outline"
-                    className="w-full cursor-pointer"
+                    className="w-full cursor-pointer h-12 md:h-10"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

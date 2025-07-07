@@ -18,7 +18,7 @@ export const BackToDashboardButton = ({
       <Button
         variant="outline"
         onClick={backToDashboard}
-        className="flex items-center gap-2 cursor-pointer"
+        className="flex items-center gap-2 cursor-pointer py-6 md:py-3"
       >
         <ArrowLeft size={16} />
         <FormattedMessage

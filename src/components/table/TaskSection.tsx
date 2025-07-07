@@ -3,6 +3,7 @@ import { EmptyTaskList } from "./EmptyTaskList";
 import { LoaderCircle } from "lucide-react";
 import TaskItem from "../task/TaskItem";
 import { useIntl } from "react-intl";
+import { cn } from "@/src/lib/utils";
 
 interface Props {
   className?: string;
@@ -49,7 +50,7 @@ export const TaskSection = ({
   }
 
   return (
-    <div className={className}>
+    <div className={cn(className)}>
       <section className="animate-slide-in">
         {completed ? (
           tasks.length === 0 ? (
