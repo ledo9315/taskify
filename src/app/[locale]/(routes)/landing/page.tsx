@@ -875,19 +875,6 @@ export default function LandingPage() {
                 </motion.div>
               </Link>
             </motion.div>
-
-            <motion.div
-              className="text-white/80 text-sm"
-              variants={itemVariants}
-              initial={{ y: 20, opacity: 0 }}
-              animate={ctaInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <FormattedMessage
-                id="Landing.cta.features"
-                defaultMessage="⚡ Sofort nutzbar • 📱 Responsive Design • 🔒 Deine Daten bleiben bei dir"
-              />
-            </motion.div>
           </motion.div>
         </div>
       </motion.section>
